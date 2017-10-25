@@ -7,7 +7,7 @@ cmake_minimum_required(VERSION 3.1.0)
 project ( ratflow-desktop NONE )
 set( VERSION_MAJOR 1 )
 set( VERSION_MINOR 0 )
-set( VERSION_PATCH 13 )
+set( VERSION_PATCH 15 )
 
 
 ##############################################
@@ -64,6 +64,11 @@ INSTALL(
   DESTINATION /usr/bin/
 )
 
+INSTALL(
+  PROGRAMS ${CMAKE_CURRENT_SOURCE_DIR}/system/usr/local/bin/translate-shell
+  DESTINATION /usr/local/bin/
+)
+
 ###### CPACK DEB PACKAGE SETTINGS ######
 
 IF(EXISTS "${CMAKE_ROOT}/Modules/CPack.cmake")
@@ -76,7 +81,7 @@ SET(CPACK_PACKAGE_DESCRIPTION "")
 SET(CPACK_PACKAGE_DESCRIPTION_SUMMARY "RATFLOW desktop environment")
 SET(CPACK_PACKAGE_VENDOR "Łukasz Chodyła")
 SET(CPACK_PACKAGE_CONTACT ${CPACK_PACKAGE_VENDOR})
-SET(CPACK_DEBIAN_PACKAGE_DEPENDS "lightdm, lightdm-gtk-greeter-settings, i3 (>= 4.10), i3blocks (>= 1.4), compton, rofi (>= 0.15), pcmanfm, file-roller, leafpad, x11-xserver-utils, git-aware-prompt, lxappearance, terminator, keepassx, clipit, network-manager-gnome, feh, redshift, xserver-xorg-input-synaptics, gsimplecal, screengrab")
+SET(CPACK_DEBIAN_PACKAGE_DEPENDS "lightdm, lightdm-gtk-greeter-settings, i3 (>= 4.10), i3blocks (>= 1.4), compton, rofi (>= 0.15), pcmanfm, file-roller, leafpad, x11-xserver-utils, git-aware-prompt, lxappearance, terminator, keepassx, clipit, network-manager-gnome, feh, redshift, xserver-xorg-input-synaptics, gsimplecal, screengrab, libnotify-bin, gawk")
 SET(CPACK_DEBIAN_PACKAGE_REPLACES "lightdm-gtk-greeter")
 SET(CPACK_DEBIAN_PACKAGE_PRIORITY "optional")
 SET(CPACK_DEBIAN_PACKAGE_SECTION "ratflow")

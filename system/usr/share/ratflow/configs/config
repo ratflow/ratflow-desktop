@@ -307,9 +307,9 @@ bindsym $mod+Shift+a exec $autoappScript
 # calendar
 bindsym $mod+c exec gsimplecal
 
-# QLexi - quick translation of selected text
-bindsym $mod+t exec qlexi --gui --tray --timeout 15000 %selection
-#bindsym $mod+t exec qlexi --timeout 20000 --command "notify-send -t 20000 \\\\"%h\\\\" \\\\"%r\\\\"" %selection
+# translation of selected text (polish <-> english)
+bindsym $mod+t exec notify-send -t 20000 "Selected text translation EN->PL:\n\n`translate-shell -b :pl \"$(xsel)\"`"                                                                                
+bindsym $mod+Shift+t exec notify-send -t 20000 "Selected text translation PL->EN:\n\n`translate-shell -b -s pl \"$(xsel)\"`"
 
 
 #------------------------------------------------
