@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=ratflow desktop
+Comment=i3-based desktop environment
+Exec=/usr/bin/ratflow-session
+TryExec=ratflow-session
+Type=Application
+X-LightDM-DesktopName=ratflow desktop
+

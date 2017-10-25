@@ -1,0 +1,32 @@
+#!/usr/bin/python
+
+import subprocess, json
+
+mapFile = open('/usr/share/ratflow/configs/autoapp', 'r');
+
+map = json.loads(mapFile.read());
+
+print map
+
+def getCurrentWorkspaceNum():
+    command = "i3-msg -t get_workspaces"
+    proc = subprocess.Popen([command], stdout=subprocess.PIPE, shell=True)
+    (out, err) = proc.communicate()
+    jworkspaces = json.loads(out)
+
+    print jworkspaces
+
+    for workspace in jworkspaces:
+        if workspace['focused'] == True:
+            return workspace['num']
+    return False
+
+
+workspaceNum = str(getCurrentWorkspaceNum())
+
+if workspaceNum in map:
+    command = "i3-msg exec "+map[workspaceNum]
+    print "running command: "+command
+    proc = subprocess.Popen([command], stdout=subprocess.PIPE, shell=True) 
+else:
+    print "no application assigned to workspace ", workspaceNum
