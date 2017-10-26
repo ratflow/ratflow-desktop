@@ -54,19 +54,19 @@ set $leftOutput HDMI1
 set $rightOutput eDP1
 
 # colors
-set $clFocusedActiveBorder			#252525
-set $clFocusedActiveBackground		#252525
-set $clFocusedActiveText 			#40A0FD
-set $clFocusedInactiveBorder		#101010
-set $clFocusedinactiveBackground	#101010
-set $clFocusedInactiveText			#606060
-set $clUnfocusedBorder				#101010
-set $clUnfocusedBackground			#000000
-set $clUnfocusedText				#606060
-set $clUrgentBorder					#F05000
-set $clUrgentBackground				#F05000
-set $clUrgentText					#F0F0F0
-set $clIndicator					#101010
+set $clFocusedActiveBorder          #252525
+set $clFocusedActiveBackground      #252525
+set $clFocusedActiveText            #40A0FD
+set $clFocusedInactiveBorder        #101010
+set $clFocusedinactiveBackground    #101010
+set $clFocusedInactiveText          #606060
+set $clUnfocusedBorder              #101010
+set $clUnfocusedBackground          #000000
+set $clUnfocusedText                #606060
+set $clUrgentBorder                 #F05000
+set $clUrgentBackground             #F05000
+set $clUrgentText                   #F0F0F0
+set $clIndicator                    #101010
 
 
 #------------------------------------------------
@@ -435,11 +435,11 @@ bindsym $mod+m mode "monitors"
 #------------------------------------------------
 
 # Widow Colours
-#                         border  			background 			text    		indicator
-  client.focused          $clFocusedActiveBorder 	$clFocusedActiveBackground    	$clFocusedActiveText	$clIndicator
-  client.focused_inactive $clFocusedInactiveBorder 	$clFocusedinactiveBackground    $clFocusedInactiveText	$clIndicator
-  client.unfocused        $clUnfocusedBorder	 	$clUnfocusedBackground    	$clUnfocusedText	$clIndicator
-  client.urgent           $clUrgentBorder	 	$clUrgentBackground    		$clUrgentText		$clIndicator
+#                         border                    background                      text                    indicator
+  client.focused          $clFocusedActiveBorder    $clFocusedActiveBackground      $clFocusedActiveText    $clIndicator
+  client.focused_inactive $clFocusedInactiveBorder  $clFocusedinactiveBackground    $clFocusedInactiveText  $clIndicator
+  client.unfocused        $clUnfocusedBorder        $clUnfocusedBackground          $clUnfocusedText        $clIndicator
+  client.urgent           $clUrgentBorder           $clUrgentBackground             $clUrgentText           $clIndicator
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -453,17 +453,17 @@ bar {
         #tray_output primary 
         position top
 
-	colors {
-	      separator $clFocusedActiveText
-	      background $clUnfocusedBackground
-	      statusline $clFocusedActiveText
+    colors {
+          separator $clFocusedActiveText
+          background $clUnfocusedBackground
+          statusline $clFocusedActiveText
 
-#				 border  			background 			text
-	      focused_workspace  $clFocusedActiveBackground 	$clFocusedActiveBackground    	$clFocusedActiveText
-	      active_workspace   $clFocusedActiveBorder 	$clFocusedActiveBackground    	$clFocusedActiveText
-	      inactive_workspace $clUnfocusedBackground 	$clUnfocusedBackground	        $clUnfocusedText
-	      urgent_workspace   $clUrgentBorder	 	$clUrgentBackground    		$clUrgentText
-	    }
+#         border             background                     text
+          focused_workspace  $clFocusedActiveBackground     $clFocusedActiveBackground      $clFocusedActiveText
+          active_workspace   $clFocusedActiveBorder         $clFocusedActiveBackground      $clFocusedActiveText
+          inactive_workspace $clUnfocusedBackground         $clUnfocusedBackground	        $clUnfocusedText
+          urgent_workspace   $clUrgentBorder                $clUrgentBackground             $clUrgentText
+        }
 }
 
 
@@ -477,6 +477,9 @@ bar {
 # autostart - login command execution
 #
 #------------------------------------------------
+
+# ensure that notification daemon is running
+exec dunst
 
 # run window composer (with 2ms per step while faiding)
 exec compton -f -D 2
@@ -515,7 +518,6 @@ exec clipit
 
 
 
-
 #------------------------------------------------
 #
 # autostart - (re)load command execution
@@ -529,7 +531,7 @@ exec xrandr --output HDMI1 --mode 1920x1200 --left-of eDP1
 # set wallpapers
 exec_always --no-startup-id sleep 2 && feh --bg-scale $wallpaper1 --bg-scale $wallpaper2
 
-#apply xrandr settings
+# apply xrandr settings
 exec_always --no-startup-id sleep 2 && xrandr --output $leftOutput --left-of $rightOutput
 
 #------------------------------------------------

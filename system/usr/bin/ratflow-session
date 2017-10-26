@@ -90,7 +90,9 @@ function initUserConfig {
 	safeCp /usr/share/ratflow/configs/gtkrc-2.0 $HOME/.gtkrc-2.0
 	safeCp /usr/share/ratflow/configs/gtk-3.0-settings.ini $HOME/.config/gtk-3.0/settings.ini
 	safeCp /usr/share/ratflow/configs/terminator-config $HOME/.config/terminator/config
+	safeCp /usr/share/ratflow/configs/dunstrc $HOME/.config/dunst/dunstrc
 }
+
 
 function safeCp {
 	src="$1"
