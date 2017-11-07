@@ -114,18 +114,22 @@ function confirmCp {
 	
 	if [ -f "$dst" ]; then
 		
+		c="y"
+		
 		if [ $confirm == 1 ]; then
 			echo -e -n "The file \"$dst\" already exists.\nDo you want to backup it and create new one? [y]/n/all: "
 			read c
 		
 			if [ "$c" == "all" ]; then confirm=0; fi
-		
-			if [ "$c" != "n" ]; then
-				backupFile="$dst.backup-"$(date +%Y%m%d%H%M)
-				cp -v "$dst" "$backupFile"
-				cp -vf "$src" "$dst"
-			fi
 		fi
+		
+		
+		if [ "$c" != "n" ]; then
+			backupFile="$dst.backup-"$(date +%Y%m%d%H%M)
+			cp -v "$dst" "$backupFile"
+			cp -vf "$src" "$dst"
+		fi
+		
 	else
 		cp "$src" "$dst"
 	fi
