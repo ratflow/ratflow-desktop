@@ -35,6 +35,9 @@ it as you wish, but our initial workspaces are:
 10. music players,
 11. virtual machines.
 
+Newly created windows will be automatically assigned to these
+workspaces based on the rules from configuration file.
+
 All these workspaces are accessible by single key binding. From
 #1 to #9 it's mod key + 1-9, for #10 it's mod key + 0 and for #11
 it's mod key + alt + v.
@@ -107,4 +110,10 @@ we're suggesting using APT repository.
 
 Debian 9 packages (also tested on Ubuntu 16.04):
 
+sudo apt-add-repository "deb http://104.168.38.173:8181/apt buster main"
+wget http://104.168.38.173:8181/apt/pubkey.gpg -O /tmp/ratflow-pubkey.gpg
+sudo apt-key add /tmp/ratflow-pubkey.gpg
+
+sudo aptitude update
+sudo aptitude install ratflow-desktop
 
