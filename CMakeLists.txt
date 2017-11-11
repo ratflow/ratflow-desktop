@@ -18,6 +18,9 @@ set( VERSION_PATCH 17 )
 ################# INSTALLATION ###############
 ##############################################
 
+set( CMAKE_PROJECT_NAME ratflow-desktop )
+
+
 ###### CACHED VARIABLES ######
 
 # Set the system name like: cmake -DPACKAGE_SYSTEM_NAME:STRING="xenial-16.04" project
@@ -25,10 +28,8 @@ set(PACKAGE_SYSTEM_NAME "" CACHE STRING "Destination system release and version"
 
 set(PACKAGE_SYSTEM_ARCH "generic" CACHE STRING "Destination system architecture")
 
-
+###### GET SYSTEM RELEASE ######
 if(${PACKAGE_SYSTEM_NAME} STREQUAL "")
-
-	set( CMAKE_PROJECT_NAME ratflow-desktop )
 	
 	###### GET SYSTEM RELEASE ######
 	set (EXECUTE_COMMAND lsb_release -rs)
