@@ -7,7 +7,7 @@ cmake_minimum_required(VERSION 3.1.0)
 project ( ratflow-desktop NONE )
 set( VERSION_MAJOR 1 )
 set( VERSION_MINOR 0 )
-set( VERSION_PATCH 16 )
+set( VERSION_PATCH 17 )
 
 
 ##############################################
@@ -18,30 +18,42 @@ set( VERSION_PATCH 16 )
 ################# INSTALLATION ###############
 ##############################################
 
+###### CACHED VARIABLES ######
 
-set( CMAKE_PROJECT_NAME ratflow-desktop )
+# Set the system name like: cmake -DPACKAGE_SYSTEM_NAME:STRING="xenial-16.04" project
+set(PACKAGE_SYSTEM_NAME "" CACHE STRING "Destination system release and version")
 
-###### GET SYSTEM RELEASE ######
-set (EXECUTE_COMMAND lsb_release -rs)
-execute_process(COMMAND ${EXECUTE_COMMAND} OUTPUT_VARIABLE system_release_raw)
-
-###### REMOVE ENDLINE FROM SYSTEM RELEASE ######
-string(LENGTH ${system_release_raw} len)
-math(EXPR length "${len} - 1")
-string(SUBSTRING ${system_release_raw} 0 ${length} SYSTEM_RELEASE)
-
-###### GET SYSTEM NAME ######
-set (EXECUTE_COMMAND lsb_release -cs)
-execute_process(COMMAND ${EXECUTE_COMMAND} OUTPUT_VARIABLE system_name_raw)
-
-###### REMOVE ENDLINE FROM SYSTEM NAME ######
-string(LENGTH ${system_name_raw} len)
-math(EXPR length "${len} - 1")
-string(SUBSTRING ${system_name_raw} 0 ${length} SYSTEM_NAME)
+set(PACKAGE_SYSTEM_ARCH "generic" CACHE STRING "Destination system architecture")
 
 
-###### GENERAL VARIABLES ######
-SET(CMAKE_SYSTEM_NAME "${SYSTEM_NAME}-${SYSTEM_RELEASE}")
+if(${PACKAGE_SYSTEM_NAME} STREQUAL "")
+
+	set( CMAKE_PROJECT_NAME ratflow-desktop )
+	
+	###### GET SYSTEM RELEASE ######
+	set (EXECUTE_COMMAND lsb_release -rs)
+	execute_process(COMMAND ${EXECUTE_COMMAND} OUTPUT_VARIABLE system_release_raw)
+	
+	###### REMOVE ENDLINE FROM SYSTEM RELEASE ######
+	string(LENGTH ${system_release_raw} len)
+	math(EXPR length "${len} - 1")
+	string(SUBSTRING ${system_release_raw} 0 ${length} SYSTEM_RELEASE)
+	
+	###### GET SYSTEM NAME ######
+	set (EXECUTE_COMMAND lsb_release -cs)
+	execute_process(COMMAND ${EXECUTE_COMMAND} OUTPUT_VARIABLE system_name_raw)
+	
+	###### REMOVE ENDLINE FROM SYSTEM NAME ######
+	string(LENGTH ${system_name_raw} len)
+	math(EXPR length "${len} - 1")
+	string(SUBSTRING ${system_name_raw} 0 ${length} SYSTEM_NAME)
+	
+	SET(CMAKE_SYSTEM_NAME "${SYSTEM_NAME}-${SYSTEM_RELEASE}")
+	
+	
+else(${PACKAGE_SYSTEM_NAME} STREQUAL "")
+	SET(CMAKE_SYSTEM_NAME "${PACKAGE_SYSTEM_NAME}")
+endif(${PACKAGE_SYSTEM_NAME} STREQUAL "")
 
 
 ###### INSTALLATION PATHS ######
@@ -90,7 +102,7 @@ SET(CPACK_PACKAGE_VERSION_MAJOR "${VERSION_MAJOR}")
 SET(CPACK_PACKAGE_VERSION_MINOR "${VERSION_MINOR}")
 SET(CPACK_PACKAGE_VERSION_PATCH "${VERSION_PATCH}-${CMAKE_SYSTEM_NAME}")
 #SET(CPACK_DEBIAN_ARCHITECTURE ${CMAKE_SYSTEM_PROCESSOR})
-SET(CPACK_DEBIAN_ARCHITECTURE "generic")
+SET(CPACK_DEBIAN_ARCHITECTURE ${PACKAGE_SYSTEM_ARCH})
 
 SET(CPACK_PACKAGE_FILE_NAME "${CMAKE_PROJECT_NAME}_${VERSION_MAJOR}.${VERSION_MINOR}.${CPACK_PACKAGE_VERSION_PATCH}_${CPACK_DEBIAN_ARCHITECTURE}")
 SET(CPACK_SOURCE_PACKAGE_FILE_NAME "${CPACK_PACKAGE_FILE_NAME}")
