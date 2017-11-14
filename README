@@ -103,10 +103,15 @@ be replaced by other, more suitable ones.
 Installation
 ------------
 
-Start by reading i3 configuration reference and the contents of
-system/usr/share/ratflow/configs/config file. As you may install
-all the applications manually according to key bindings and autostart,
-we're suggesting using APT repository.  
+If you are new to i3wm, pleasee start by reading i3 configuration 
+reference and the contents of system/usr/share/ratflow/configs/config.
+
+You may want to go through the ratflow config file and setup all
+applications manually according to key bindings and autostart section.
+Debian/Ubuntu users can try our APT repository as described below. 
+Be aware that the ratflow-desktop package will install and preconfigure
+lightdm display manager!
+  
 
 Debian 9 packages (also tested on Ubuntu 16.04):
 
@@ -114,6 +119,6 @@ sudo apt-add-repository "deb http://104.168.38.173:8181/apt buster main"
 wget http://104.168.38.173:8181/apt/pubkey.gpg -O /tmp/ratflow-pubkey.gpg
 sudo apt-key add /tmp/ratflow-pubkey.gpg
 
-sudo aptitude update
-sudo aptitude install ratflow-desktop
+sudo apt-get update
+sudo apt-get install ratflow-desktop
 
