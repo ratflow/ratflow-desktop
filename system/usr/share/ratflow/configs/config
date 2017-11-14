@@ -1,0 +1,553 @@
+# This is ~/.config/ratflow/config file - i3 window manager config file.
+#
+# Take a tour over the comments and customize it as you wish.
+# Template for this file is stored in: 
+# 
+# /usr/share/ratflow/configs/config
+# 
+#
+# Please see http://i3wm.org/docs/userguide.html for a complete reference!
+
+
+#------------------------------------------------
+#
+# variable definitions
+#
+#------------------------------------------------
+
+# what will be yout mod key? Use Mod4 for "window" key, Mod1 for "alt"
+set $mod Mod4
+
+# font
+set $fontName Source Sans Pro Semi-Bold
+set $fontSize 10
+set $barFontSize 9
+
+# resources location
+set $resources /usr/share/ratflow
+
+# auto app script 
+set $autoappScript /usr/share/ratflow/scripts/autoapp
+
+# power management script
+set $exitScript /usr/share/ratflow/scripts/i3exit
+
+# wallpapers (second for multihead)
+set $wallpaper1 /usr/share/ratflow/images/wallpaper02.jpg
+set $wallpaper2 /usr/share/ratflow/images/wallpaper02.jpg
+
+# workspaces
+set $workspace1 1: >_
+set $workspace2 2: dev
+set $workspace3 3: www
+set $workspace4 4: files
+set $workspace5 5: e-mail
+set $workspace6 6: IM
+set $workspace7 7: video
+set $workspace8 8: workspace
+set $workspace9 9: workspace
+set $workspace10 10: Music
+set $workspace11 V: VM
+
+# monitors - use "xrandr --listmonitors" to obtain your output names
+set $leftOutput HDMI1
+set $rightOutput eDP1
+
+# colors
+set $clFocusedActiveBorder          #252525
+set $clFocusedActiveBackground      #252525
+set $clFocusedActiveText            #40A0FD
+set $clFocusedInactiveBorder        #101010
+set $clFocusedinactiveBackground    #101010
+set $clFocusedInactiveText          #606060
+set $clUnfocusedBorder              #101010
+set $clUnfocusedBackground          #000000
+set $clUnfocusedText                #606060
+set $clUrgentBorder                 #F05000
+set $clUrgentBackground             #F05000
+set $clUrgentText                   #F0F0F0
+set $clIndicator                    #101010
+
+
+#------------------------------------------------
+
+
+
+
+
+#------------------------------------------------
+#
+# fonts
+#
+#------------------------------------------------
+
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below.
+
+font pango: $fontName $fontSize
+#font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+
+# This font is widely installed, provides lots of unicode glyphs, right-to-left
+# text rendering and scalability on retina/hidpi displays (thanks to pango).
+#font pango:DejaVu Sans Mono 8
+
+#------------------------------------------------
+
+
+
+
+
+
+#------------------------------------------------
+#
+# window management bindings
+#
+#------------------------------------------------
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+# change focus
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+semicolon focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+semicolon move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# nested split in horizontal orientation
+bindsym $mod+h split h
+
+# nested split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen 
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+bindsym --whole-window $mod+button2 floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# switch to workspace
+bindsym $mod+1 workspace $workspace1
+bindsym $mod+2 workspace $workspace2
+bindsym $mod+3 workspace $workspace3
+bindsym $mod+4 workspace $workspace4
+bindsym $mod+5 workspace $workspace5
+bindsym $mod+6 workspace $workspace6
+bindsym $mod+7 workspace $workspace7
+bindsym $mod+8 workspace $workspace8
+bindsym $mod+9 workspace $workspace9
+bindsym $mod+0 workspace $workspace10
+bindsym $mod+Mod1+v workspace $workspace11
+
+# next/prev workspace
+bindsym $mod+x workspace next
+bindsym $mod+Shift+x move container to workspace next
+bindsym $mod+z workspace prev
+bindsym $mod+Shift+z move container to workspace prev
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $workspace1
+bindsym $mod+Shift+2 move container to workspace $workspace2
+bindsym $mod+Shift+3 move container to workspace $workspace3
+bindsym $mod+Shift+4 move container to workspace $workspace4
+bindsym $mod+Shift+5 move container to workspace $workspace5
+bindsym $mod+Shift+6 move container to workspace $workspace6
+bindsym $mod+Shift+7 move container to workspace $workspace7
+bindsym $mod+Shift+8 move container to workspace $workspace8
+bindsym $mod+Shift+9 move container to workspace $workspace9
+bindsym $mod+Shift+0 move container to workspace $workspace10
+
+
+# moving workspace across monitors
+bindsym $mod+Control+Left move workspace to output left
+bindsym $mod+Control+Right move workspace to output right
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym semicolon resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+
+#------------------------------------------------
+
+
+
+
+#------------------------------------------------
+#
+# assign applications to workspaces
+#
+#------------------------------------------------
+
+assign [class="Qtcreator"] $workspace2
+assign [class="Eclipse"] $workspace2
+#assign [class="Kate"] $workspace2
+#assign [class="Gedit"] $workspace2
+#assign [class="Emacs"] $workspace2
+
+assign [class="Iceweasel"] $workspace3
+assign [class="Firefox"] $workspace3
+assign [class="Chromium-browser"] $workspace3
+assign [class="Chrome"] $workspace3
+
+assign [class="Pcmanfm"] $workspace4
+assign [class="Dolphin"] $workspace4
+assign [class="Nautilus"] $workspace4
+assign [class="Thunar"] $workspace4
+
+assign [class="Thunderbird"] $workspace5
+
+assign [class="Kadu"] $workspace6
+assign [class="Skype"] $workspace6
+assign [class="Pidgin"] $workspace6
+assign [class="Kopete"] $workspace6
+assign [class="Telegram"] $workspace6
+
+#assign [class="Smplayer"] $workspace7
+#assign [class="Smplayer2"] $workspace7
+#assign [class="Mplayer"] $workspace7
+#assign [class="Vlc"] $workspace7
+#assign [class="dragonplayer"] $workspace7
+assign [class="Kodi"] $workspace7
+
+assign [class="Clementine"] $workspace10
+assign [class="Rhythmbox"] $workspace10
+assign [class="Spotify"] $workspace10
+
+assign [class="VirtualBox"] $workspace11
+
+#------------------------------------------------
+
+
+
+#------------------------------------------------
+#
+# floating windows
+#
+#------------------------------------------------
+
+
+
+for_window [class="screengrab"] floating enable
+
+
+
+#------------------------------------------------
+#
+# application running bindings
+#
+#------------------------------------------------
+
+# start a terminal
+#bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec terminator -p ratflow-terminator
+
+# start dmenu (a program launcher)
+#bindsym $mod+d exec dmenu_run
+#bindsym Mod1+F2 exec dmenu_run
+
+#let's replace dmenu by rofi (or else):
+bindsym $mod+d exec $resources/scripts/app_launcher
+bindsym Mod1+F2 exec $resources/scripts/app_launcher
+
+# screenshots (full, region, active)
+bindsym Print exec screengrab --fullscreen
+bindsym Shift+Print exec screengrab --region
+bindsym Control+Print exec screengrab --active
+
+# region app assigned to current workspace
+bindsym $mod+Shift+a exec $autoappScript
+
+# calendar
+bindsym $mod+c exec gsimplecal
+
+# translation of selected text (polish <-> english)
+bindsym $mod+t exec notify-send -t 20000 "Selected text translation EN->PL:\n\n`translate-shell -b :pl \"$(xsel)\"`"                                                                                
+bindsym $mod+Shift+t exec notify-send -t 20000 "Selected text translation PL->EN:\n\n`translate-shell -b -s pl \"$(xsel)\"`"
+
+
+#------------------------------------------------
+
+
+
+
+
+#------------------------------------------------
+#
+# media player bindings
+#
+#------------------------------------------------
+
+# Pulse Audio controls (debian)
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+
+# Pulse Audio controls (ubuntu)
+#bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +10% 
+#bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -- -10%
+#bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle # mute sound
+
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+
+
+# Media player controls
+#bindsym XF86AudioPlay exec playerctl play
+#bindsym XF86AudioPause exec playerctl pause
+#bindsym XF86AudioNext exec playerctl next
+#bindsym XF86AudioPrev exec playerctl previous
+
+# Clementine player controls
+bindsym XF86AudioPlay exec clementine --play-pause
+bindsym XF86AudioPause exec clementine --pause
+bindsym XF86AudioNext exec clementine --next
+bindsym XF86AudioPrev exec clementine --previous
+bindsym Shift+XF86AudioRaiseVolume exec clementine --volume-up
+bindsym Shift+XF86AudioLowerVolume exec clementine --volume-down
+
+
+
+
+#------------------------------------------------------------
+
+
+
+
+#------------------------------------------------
+#
+# system/power management
+#
+#------------------------------------------------
+
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# use i3exit script from https://github.com/giacomos/i3wm-config/blob/master/i3exit
+mode "power_management" {
+    bindsym l exec --no-startup-id $exitScript lock, mode "default"
+    bindsym e exec --no-startup-id $exitScript logout, mode "default"
+    bindsym s exec --no-startup-id $exitScript suspend, mode "default"
+    bindsym h exec --no-startup-id $exitScript hibernate, mode "default"
+    bindsym r exec --no-startup-id $exitScript reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id $exitScript shutdown, mode "default"
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+Pause mode "power_management"
+
+
+
+#------------------------------------------------
+
+
+
+#------------------------------------------------
+#
+# monitors management
+#
+#------------------------------------------------
+
+
+mode "monitors" {
+	# mod + shift + 1 to turn off left monitor, mod + 1 to turn it on
+	bindsym $mod+Shift+1 exec xrandr --output $leftOutput --off; mode "default"; restart
+	bindsym $mod+1 exec xrandr --output $leftOutput --auto --left-of $rightOutput;mode "default"; restart
+	
+	# mod + shift + 2 to turn off right monitor, mod + 2 to turn it on
+	bindsym $mod+Shift+2 exec xrandr --output $rightOutput --off; mode "default", restart
+	bindsym $mod+2 exec xrandr --output $rightOutput --auto --right-of $leftOutput; mode "default"; restart
+
+
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
+
+bindsym $mod+m mode "monitors"
+
+
+#------------------------------------------------
+
+
+
+
+
+#------------------------------------------------
+#
+# i3 bar and appearance
+#
+#------------------------------------------------
+
+# Widow Colours
+#                         border                    background                      text                    indicator
+  client.focused          $clFocusedActiveBorder    $clFocusedActiveBackground      $clFocusedActiveText    $clIndicator
+  client.focused_inactive $clFocusedInactiveBorder  $clFocusedinactiveBackground    $clFocusedInactiveText  $clIndicator
+  client.unfocused        $clUnfocusedBorder        $clUnfocusedBackground          $clUnfocusedText        $clIndicator
+  client.urgent           $clUrgentBorder           $clUrgentBackground             $clUrgentText           $clIndicator
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+bar {
+        font xft:$fontName, FontAwesome $barFontsize
+
+        status_command i3blocks -c $resources/configs/i3blocks.conf
+        
+        #Use tray_output primary/none/<output name> to define where the tray should be (multiple tray_output can be used)
+        #Remember to set any of your displays to primary (i.e. using xrandr)
+        #tray_output primary 
+        position top
+
+    colors {
+          separator $clFocusedActiveText
+          background $clUnfocusedBackground
+          statusline $clFocusedActiveText
+
+#         border             background                     text
+          focused_workspace  $clFocusedActiveBackground     $clFocusedActiveBackground      $clFocusedActiveText
+          active_workspace   $clFocusedActiveBorder         $clFocusedActiveBackground      $clFocusedActiveText
+          inactive_workspace $clUnfocusedBackground         $clUnfocusedBackground	        $clUnfocusedText
+          urgent_workspace   $clUrgentBorder                $clUrgentBackground             $clUrgentText
+        }
+}
+
+
+#------------------------------------------------
+
+
+
+
+#------------------------------------------------
+#
+# autostart - login command execution
+#
+#------------------------------------------------
+
+# ensure that notification daemon is running
+exec dunst
+
+# run window composer (with 2ms per step while faiding)
+exec compton -f -D 2
+
+# enable touchpad with tapping and two-finger scroll
+exec synclient TouchpadOff=0
+exec synclient TapButton1=1
+exec synclient VertTwoFingerScroll=1
+exec synclient VertHysteresis=30
+exec synclient HorizHysteresis=30
+
+# tune down screen colors with redshift
+exec redshift -l 52.43:15.15 -m randr
+
+# run network manager
+exec nm-applet
+
+# run clipboard manager
+exec clipit
+
+# run bluetooth manager
+#exec blueman-applet
+
+# run tray icon with calendar
+#exec gtrayicon --activate="gsimplecal" --deactivate="killall gsimplecal" --activate-icon="/usr/share/ratflow/icons/cal-activate.png" --deactivate-icon="/usr/share/ratflow/icons/cal-deactivate.png"
+
+# other autostart apps
+#exec terminator -p ratflow-terminator
+#exec pcmanfm
+#exec firefox
+#exec thunderbird
+
+
+#------------------------------------------------
+
+
+
+
+#------------------------------------------------
+#
+# autostart - (re)load command execution
+#
+#------------------------------------------------
+
+# setup monitors
+exec xrandr --output eDP1 --mode 1600x900 --primary
+exec xrandr --output HDMI1 --mode 1920x1200 --left-of eDP1
+
+# set wallpapers
+exec_always --no-startup-id sleep 2 && feh --bg-scale $wallpaper1 --bg-scale $wallpaper2
+
+# apply xrandr settings
+exec_always --no-startup-id sleep 2 && xrandr --output $leftOutput --left-of $rightOutput
+
+#------------------------------------------------
+
+
+
+
+#####################################
+# remove this line after first start:                                                                                                                                                                
+exec terminator -p ratflow-terminator -x nano ~/.config/ratflow/config
+
+
