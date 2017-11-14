@@ -58,42 +58,42 @@ installation package. Most of them are used default configuration
 file, so even though they are not mandatory, we recommend to install
 them in order to use all key bindings and services.
 
-lightdm - display manager with preconfigured ratflow greeter. Use 
+* lightdm - display manager with preconfigured ratflow greeter. Use 
 "lightdm-gtk-greeter-settings" to customize it. 
 
-terminator - default terminal emulator that also comes with our
+* terminator - default terminal emulator that also comes with our
 "ratflow-terminator" configuration profile.
 
-compton - composite manager.
+* compton - composite manager.
 
-rofi - application launcher. Default key binding runs rofi with our
+* rofi - application launcher. Default key binding runs rofi with our
 theme. Feel free to customize or replace it in 
 /usr/share/ratflow/scripts/app_launcher.
 
-pcmanfm - light file manager.
+* pcmanfm - light file manager.
 
-file-roller - archive manager.
+* file-roller - archive manager.
 
-leafpad - simple notepad.
+* leafpad - simple notepad.
 
-git-aware-prompt - bash profile modification that displays current
+* git-aware-prompt - bash profile modification that displays current
 GIT branch in terminal prompt.
 
-keepassx - password manager and passphrase generator.
+* keepassx - password manager and passphrase generator.
 
-clipit - clipboard manager.
+* clipit - clipboard manager.
 
-network-manager-gnome - Ubuntu network manager with system tray icon.
+* network-manager-gnome - Ubuntu network manager with system tray icon.
 
-feh - image viewer used to setup wallpaper images.
+* feh - image viewer used to setup wallpaper images.
 
-redshift - display color temperature correction tool.
+* redshift - display color temperature correction tool.
 
-gsimplecal - simple calendar with UI.
+* gsimplecal - simple calendar with UI.
 
-screengrab - default screenshot tool.
+* screengrab - default screenshot tool.
 
-dunst - notification service.
+* dunst - notification service.
 
 All original configuration files will be backuped as single copy
 with timestamp suffix. Note that some of the apps above are going to 
@@ -115,10 +115,14 @@ lightdm display manager!
 
 Debian 9 packages (also tested on Ubuntu 16.04):
 
+```sh
 sudo apt-add-repository "deb http://104.168.38.173:8181/apt buster main"
 wget http://104.168.38.173:8181/apt/pubkey.gpg -O /tmp/ratflow-pubkey.gpg
 sudo apt-key add /tmp/ratflow-pubkey.gpg
 
 sudo apt-get update
 sudo apt-get install ratflow-desktop
+```
+
+Enjoy!
 
