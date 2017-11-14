@@ -103,13 +103,13 @@ be replaced by other, more suitable ones.
 Installation
 ------------
 
-If you are new to i3wm, pleasee start by reading i3 configuration 
+If you are new to i3wm, please start by reading i3 configuration 
 reference and the contents of system/usr/share/ratflow/configs/config.
 
 You may want to go through the ratflow config file and setup all
 applications manually according to key bindings and autostart section.
 Debian/Ubuntu users can try our APT repository as described below. 
-Be aware that the ratflow-desktop package will install and preconfigure
+Be aware that the ratflow-desktop package will install and reconfigure
 lightdm display manager!
   
 
