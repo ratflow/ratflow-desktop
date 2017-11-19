@@ -46,17 +46,18 @@ it's mod key + alt + v.
 Configuration file
 ------------------
 
-The configuration file is placed in ~/.config/ratflow/config. This
-is i3 configuration file. Read more about i3 configuration at
-http://i3wm.org/docs/userguide.html
+The configuration file is located in ~/.config/ratflow/config. 
+This is i3 configuration file. Read more about i3 configuration 
+at http://i3wm.org/docs/userguide.html
 
 Apps & tools
 ----
 
 Here's the initial set of applications that comes with ratflow
-installation package. Most of them are used default configuration
-file, so even though they are not mandatory, we recommend to install
-them in order to use all key bindings and services.
+installation package. Most of them are used in the default 
+configuration file, so even though they are not mandatory, we 
+recommend to install them in order to use all key bindings and 
+services.
 
 * lightdm - display manager with preconfigured ratflow greeter. Use 
 "lightdm-gtk-greeter-settings" to customize it. 
