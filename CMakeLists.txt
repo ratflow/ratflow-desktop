@@ -95,7 +95,7 @@ SET(CPACK_PACKAGE_DESCRIPTION_SUMMARY "RATFLOW desktop environment")
 SET(CPACK_PACKAGE_VENDOR "Łukasz Chodyła")
 SET(CPACK_PACKAGE_CONTACT ${CPACK_PACKAGE_VENDOR})
 SET(CPACK_DEBIAN_PACKAGE_DEPENDS "lightdm, lightdm-gtk-greeter-settings, i3 (>= 4.10), i3blocks (>= 1.4), compton, rofi (>= 0.15), pcmanfm, file-roller, leafpad, x11-xserver-utils, git-aware-prompt, lxappearance, terminator, keepassx, clipit, network-manager-gnome, feh, redshift, xserver-xorg-input-synaptics, gsimplecal, screengrab, libnotify-bin, gawk, dunst")
-SET(CPACK_DEBIAN_PACKAGE_REPLACES "lightdm-gtk-greeter")
+SET(CPACK_DEBIAN_PACKAGE_REPLACES "lightdm-gtk-greeter, systemd")
 SET(CPACK_DEBIAN_PACKAGE_PRIORITY "optional")
 SET(CPACK_DEBIAN_PACKAGE_SECTION "ratflow")
 
