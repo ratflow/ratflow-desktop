@@ -7,7 +7,7 @@ cmake_minimum_required(VERSION 3.1.0)
 project ( ratflow-desktop NONE )
 set( VERSION_MAJOR 1 )
 set( VERSION_MINOR 0 )
-set( VERSION_PATCH 17 )
+set( VERSION_PATCH 18 )
 
 
 ##############################################

@@ -1,7 +1,7 @@
 # Todo list for [todo-md](https://github.com/ratflow/ratflow-desktop)
 
 ### short-term
-- [ ] Add redshift temperature change key bindings
+- [x] Add redshift temperature change key bindings
 - [ ] Replace default network-manager tray icon
 - [ ] Replace default clipit tray icon
 - [ ] Setup preconfigured Vivaldi browser as default web browser
