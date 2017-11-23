@@ -5,7 +5,7 @@
 - [ ] Replace default network-manager tray icon
 - [ ] Replace default clipit tray icon
 - [ ] Setup preconfigured Vivaldi browser as default web browser
-- [ ] Configure power management settings to suspend the system when the laptop lid is closed
+- [x] Configure power management settings to suspend the system when the laptop lid is closed
 
 ### long-term
 - [ ] Implement clipit replacement with full sniplog support and other features
