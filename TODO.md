@@ -2,11 +2,11 @@
 
 ### short-term
 - [x] Add redshift temperature change key bindings
-- [ ] Replace default network-manager tray icon
-- [ ] Replace default clipit tray icon
+- [x] Replace default network-manager tray icon
+- [x] Replace default clipit tray icon
 - [ ] Setup preconfigured Vivaldi browser as default web browser
 - [x] Configure power management settings to suspend the system when the laptop lid is closed
-- [ ] Add automatic session lock after laptop lid is closed
+- [x] Add automatic session lock after laptop lid is closed
 - [ ] Add key binding list (or URL) in README.md
 
 ### long-term

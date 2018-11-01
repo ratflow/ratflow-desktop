@@ -1,3 +1,4 @@
 #!/bin/bash
 
 chmod -R +x /usr/share/ratflow/scripts/*
+chmod -R +x /usr/local/bin/*

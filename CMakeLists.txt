@@ -7,7 +7,7 @@ cmake_minimum_required(VERSION 3.1.0)
 project ( ratflow-desktop NONE )
 set( VERSION_MAJOR 1 )
 set( VERSION_MINOR 0 )
-set( VERSION_PATCH 18 )
+set( VERSION_PATCH 19 )
 
 
 ##############################################
@@ -23,10 +23,10 @@ set( CMAKE_PROJECT_NAME ratflow-desktop )
 
 ###### CACHED VARIABLES ######
 
-# Set the system name like: cmake -DPACKAGE_SYSTEM_NAME:STRING="xenial-16.04" project
-set(PACKAGE_SYSTEM_NAME "" CACHE STRING "Destination system release and version")
+# Set the system name like: cmake -DPACKAGE_SYSTEM_NAME="xenial-16.04" project
+set(PACKAGE_SYSTEM_NAME "debian" CACHE STRING "Destination system release and version")
 
-set(PACKAGE_SYSTEM_ARCH "generic" CACHE STRING "Destination system architecture")
+set(PACKAGE_SYSTEM_ARCH "multiarch" CACHE STRING "Destination system architecture")
 
 ###### GET SYSTEM RELEASE ######
 if(${PACKAGE_SYSTEM_NAME} STREQUAL "")
@@ -77,10 +77,6 @@ INSTALL(
   DESTINATION /usr/bin/
 )
 
-INSTALL(
-  PROGRAMS ${CMAKE_CURRENT_SOURCE_DIR}/system/usr/local/bin/translate-shell
-  DESTINATION /usr/local/bin/
-)
 
 ###### CPACK DEB PACKAGE SETTINGS ######
 
@@ -94,8 +90,8 @@ SET(CPACK_PACKAGE_DESCRIPTION "")
 SET(CPACK_PACKAGE_DESCRIPTION_SUMMARY "RATFLOW desktop environment")
 SET(CPACK_PACKAGE_VENDOR "Łukasz Chodyła")
 SET(CPACK_PACKAGE_CONTACT ${CPACK_PACKAGE_VENDOR})
-SET(CPACK_DEBIAN_PACKAGE_DEPENDS "lightdm, lightdm-gtk-greeter-settings, i3 (>= 4.10), i3blocks (>= 1.4), i3lock, compton, rofi (>= 0.15), pcmanfm, file-roller, leafpad, x11-xserver-utils, git-aware-prompt, lxappearance, terminator, keepassx, clipit, network-manager-gnome, feh, redshift, xserver-xorg-input-synaptics, gsimplecal, screengrab, libnotify-bin, gawk, dunst")
-SET(CPACK_DEBIAN_PACKAGE_REPLACES "lightdm-gtk-greeter, systemd")
+SET(CPACK_DEBIAN_PACKAGE_DEPENDS "sddm, qml-module-qtgraphicaleffects, i3 (>= 4.10), i3blocks (>= 1.4), i3lock, compton, python, suckless-tools, pcmanfm, file-roller, leafpad, x11-xserver-utils, git, git-aware-prompt, lxappearance, terminator, keepassx, clipit, network-manager-gnome, feh, redshift, xserver-xorg-input-synaptics, gsimplecal, screengrab, libnotify-bin, gawk, dunst")
+SET(CPACK_DEBIAN_PACKAGE_REPLACES "sddm, systemd")
 SET(CPACK_DEBIAN_PACKAGE_PRIORITY "optional")
 SET(CPACK_DEBIAN_PACKAGE_SECTION "ratflow")
 
