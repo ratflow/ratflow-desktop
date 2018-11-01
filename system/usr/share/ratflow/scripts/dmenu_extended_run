@@ -1,0 +1,7 @@
+#! /usr/bin/env python
+# -*- coding: utf8 -*-
+import dmenu_extended_ratflow
+import sys
+
+if __name__ == "__main__":
+    dmenu_extended_ratflow.run(*sys.argv)
