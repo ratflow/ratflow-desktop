@@ -59,17 +59,14 @@ configuration file, so even though they are not mandatory, we
 recommend to install them in order to use all key bindings and 
 services.
 
-* lightdm - display manager with preconfigured ratflow greeter. Use 
-"lightdm-gtk-greeter-settings" to customize it. 
+* sddm - display manager with "slice" greeter theme.
 
 * terminator - default terminal emulator that also comes with our
 "ratflow-terminator" configuration profile.
 
 * compton - composite manager.
 
-* rofi - application launcher. Default key binding runs rofi with our
-theme. Feel free to customize or replace it in 
-/usr/share/ratflow/scripts/app_launcher.
+* dmenu-extended - application launcher.
 
 * pcmanfm - light file manager.
 
@@ -95,6 +92,8 @@ GIT branch in terminal prompt.
 * screengrab - default screenshot tool.
 
 * dunst - notification service.
+
+* yadiff - terminal side-by-side file comparison tool
 
 All original configuration files will be backuped as single copy
 with timestamp suffix. Note that some of the apps above are going to 
