@@ -12,7 +12,7 @@
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   sodipodi:docname="network-error-symbolic.svg"
+   sodipodi:docname="nm-no-connection.svg"
    inkscape:export-filename="/home/sam/source-symbolic.png"
    inkscape:export-xdpi="270"
    inkscape:export-ydpi="270"
@@ -20,7 +20,7 @@
    id="svg7384"
    style="enable-background:new"
    version="1.1"
-   inkscape:version="0.91 r13725"
+   inkscape:version="0.92.1 r15371"
    width="16">
   <sodipodi:namedview
      inkscape:bbox-nodes="true"
@@ -29,7 +29,7 @@
      borderlayer="false"
      borderopacity="1"
      inkscape:current-layer="layer9"
-     inkscape:cx="5.1206059"
+     inkscape:cx="-3.4530642"
      inkscape:cy="6.0664704"
      gridtolerance="10"
      inkscape:guide-bbox="true"
@@ -59,11 +59,11 @@
      inkscape:snap-page="false"
      inkscape:snap-smooth-nodes="true"
      inkscape:snap-to-guides="true"
-     inkscape:window-height="633"
-     inkscape:window-maximized="1"
-     inkscape:window-width="1366"
-     inkscape:window-x="0"
-     inkscape:window-y="33"
+     inkscape:window-height="1037"
+     inkscape:window-maximized="0"
+     inkscape:window-width="1916"
+     inkscape:window-x="1920"
+     inkscape:window-y="41"
      inkscape:zoom="22.627416">
     <inkscape:grid
        color="#000000"
@@ -74,11 +74,11 @@
        enabled="true"
        id="grid4866"
        opacity="0.16470588"
-       originx="-123.99739px"
-       originy="-468px"
+       originx="-123.99739"
+       originy="-468"
        snapvisiblegridlinesonly="true"
-       spacingx="0.25px"
-       spacingy="0.25px"
+       spacingx="0.25"
+       spacingy="0.25"
        type="xygrid"
        visible="true" />
   </sodipodi:namedview>
@@ -1707,12 +1707,12 @@
          inkscape:label="#rect4982"
          style="fill:#565656;fill-opacity:0.34901961;stroke:none;stroke-opacity:1">
         <g
-           style="fill:#565656;fill-opacity:0.34901961;stroke:none;stroke-opacity:1"
+           style="fill:#40a0fd;fill-opacity:1;stroke:none;stroke-opacity:1"
            transform="matrix(0.11545321,0,0,0.11545321,328.568,537.94962)"
            sketch:type="MSLayerGroup"
            id="sitemap1-4">
           <path
-             style="fill:#565656;fill-opacity:0.34901961;stroke:none;stroke-opacity:1"
+             style="fill:#40a0fd;fill-opacity:1;stroke:none;stroke-opacity:1"
              inkscape:connector-curvature="0"
              sketch:type="MSShapeGroup"
              id="path6132-0"
@@ -1727,7 +1727,7 @@
     <g
        style="fill:#4d4d4d;fill-opacity:1;enable-background:new"
        id="g5315"
-       transform="matrix(0.5200469,0,0,-0.5200469,369.01954,-236.15696)">
+       transform="matrix(0.5200469,0,0,-0.5200469,369.08666,-237.22968)">
       <g
          inkscape:label="Capa 1"
          id="layer1-11"
@@ -1746,7 +1746,7 @@
             <path
                inkscape:connector-curvature="0"
                style="opacity:1;fill:#e74c3c;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-               d="m 11,3 a 8,8 0 0 0 -8,8 8,8 0 0 0 8,8 8,8 0 0 0 8,-8 8,8 0 0 0 -8,-8 z m -0.199219,3.5 a 1,1 0 0 1 1,1 1,1 0 0 1 -1,1 1,1 0 0 1 -0.9999998,-1 1,1 0 0 1 0.9999998,-1 z m -0.107422,3 0.212891,0 c 0.356143,0 0.644531,0.2864351 0.644531,0.642578 l 0,4.714844 c 0,0.356143 -0.288388,0.642578 -0.644531,0.642578 l -0.212891,0 c -0.356143,0 -0.642578,-0.286435 -0.642578,-0.642578 l 0,-4.714844 C 10.050781,9.7864351 10.337216,9.5 10.693359,9.5 Z"
+               d="m 11,3 a 8,8 0 0 0 -8,8 8,8 0 0 0 8,8 8,8 0 0 0 8,-8 8,8 0 0 0 -8,-8 z m -0.199219,3.5 a 1,1 0 0 1 1,1 1,1 0 0 1 -1,1 1,1 0 0 1 -0.9999998,-1 1,1 0 0 1 0.9999998,-1 z m -0.107422,3 h 0.212891 c 0.356143,0 0.644531,0.2864351 0.644531,0.642578 v 4.714844 c 0,0.356143 -0.288388,0.642578 -0.644531,0.642578 h -0.212891 c -0.356143,0 -0.642578,-0.286435 -0.642578,-0.642578 V 10.142578 C 10.050781,9.7864351 10.337216,9.5 10.693359,9.5 Z"
                transform="matrix(1.5,0,0,1.5,384.07144,515.29797)"
                id="path4219" />
             <g
