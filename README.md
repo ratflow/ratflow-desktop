@@ -110,15 +110,14 @@ You may want to go through the ratflow config file and setup all
 applications manually according to key bindings and autostart section.
 Debian/Ubuntu users can try our APT repository as described below. 
 Be aware that the ratflow-desktop package will install and reconfigure
-lightdm display manager!
+SDDM display manager!
   
 
-Debian 9 packages (also tested on Ubuntu 16.04):
+Ubuntu 18.04 (Bionic Beaver):
 
 ```sh
-sudo apt-add-repository "deb http://104.168.38.173:8181/apt buster main"
-wget http://104.168.38.173:8181/apt/pubkey.gpg -O /tmp/ratflow-pubkey.gpg
-sudo apt-key add /tmp/ratflow-pubkey.gpg
+wget -O - http://apt.nixlab.in/public.gpg.key | sudo apt-key add - 
+echo "deb http://apt.nixlab.in/ bionic main" | sudo tee /etc/apt/sources.list.d/apt.nixlab.in.list
 
 sudo apt-get update
 sudo apt-get install ratflow-desktop
