@@ -99,7 +99,7 @@ function safeCp {
 	src="$1"
 	dst="$2"
 	
-	if [ ! -f "$src" ]; then
+	if [ ! -e "$src" ]; then
 		echo "ERROR: source file \"$src\" not found"
 		exit 1
 	fi
