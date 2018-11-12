@@ -91,6 +91,7 @@ function initUserConfig {
 	safeCp /usr/share/ratflow/configs/gtk-3.0-settings.ini $HOME/.config/gtk-3.0/settings.ini
 	safeCp /usr/share/ratflow/configs/terminator-config $HOME/.config/terminator/config
 	safeCp /usr/share/ratflow/configs/dunstrc $HOME/.config/dunst/dunstrc
+	safeCp /usr/share/ratflow/configs/qt5ct.conf $HOME/.config/qt5ct/qt5ct.conf
 	safeCp /usr/share/ratflow/configs/ulauncher $HOME/.config/ulauncher
 }
 
