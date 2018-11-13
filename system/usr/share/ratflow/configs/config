@@ -282,7 +282,7 @@ assign [class="VirtualBox"] $workspace11
 
 
 for_window [class="screengrab"] floating enable
-
+for_window [class="Gsimplecal"] floating enable
 
 
 #------------------------------------------------
