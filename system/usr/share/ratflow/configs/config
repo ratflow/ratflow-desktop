@@ -282,7 +282,7 @@ assign [class="VirtualBox"] $workspace11
 
 
 for_window [class="screengrab"] floating enable
-
+for_window [class="Gsimplecal"] floating enable
 
 
 #------------------------------------------------
@@ -299,9 +299,9 @@ bindsym $mod+Return exec terminator -p ratflow-terminator
 #bindsym $mod+d exec dmenu_run
 #bindsym Mod1+F2 exec dmenu_run
 
-#let's replace dmenu by dmenu_extended (or else):
-bindsym $mod+d exec $resources/scripts/dmenu_extended_run
-bindsym Mod1+F2 exec $resources/scripts/dmenu_extended_run
+#let's replace dmenu by custom launcher:
+bindsym $mod+d exec ulauncher
+bindsym Mod1+F2 exec ulauncher
 
 # screenshots (full, region, active)
 bindsym Print exec screengrab --fullscreen

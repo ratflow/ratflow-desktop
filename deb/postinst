@@ -4,4 +4,4 @@ chmod -R +x /usr/share/ratflow/scripts/*
 chmod -R +x /usr/local/bin/*
 
 # enable icons in kde applications
-echo "XDG_CURRENT_DESKTOP=KDE" >> /etc/environment
+echo "QT_QPA_PLATFORMTHEME=qt5ct" >> /etc/environment

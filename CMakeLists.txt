@@ -7,7 +7,7 @@ cmake_minimum_required(VERSION 3.1.0)
 project ( ratflow-desktop NONE )
 set( VERSION_MAJOR 1 )
 set( VERSION_MINOR 0 )
-set( VERSION_PATCH 19 )
+set( VERSION_PATCH 20 )
 
 
 ##############################################
@@ -90,7 +90,7 @@ SET(CPACK_PACKAGE_DESCRIPTION "")
 SET(CPACK_PACKAGE_DESCRIPTION_SUMMARY "RATFLOW desktop environment")
 SET(CPACK_PACKAGE_VENDOR "Łukasz Chodyła")
 SET(CPACK_PACKAGE_CONTACT ${CPACK_PACKAGE_VENDOR})
-SET(CPACK_DEBIAN_PACKAGE_DEPENDS "sddm, qml-module-qtgraphicaleffects, qml-module-qtquick-layouts, i3 (>= 4.10), i3blocks (>= 1.4), i3lock, compton, python, suckless-tools, pcmanfm, file-roller, leafpad, x11-xserver-utils, git, git-aware-prompt, lxappearance, terminator, keepassx, clipit, network-manager-gnome, feh, redshift, xserver-xorg-input-synaptics, gsimplecal, screengrab, libnotify-bin, gawk, dunst, gconf2")
+SET(CPACK_DEBIAN_PACKAGE_DEPENDS "sddm, qml-module-qtgraphicaleffects, qml-module-qtquick-layouts, i3 (>= 4.10), i3blocks (>= 1.4), i3lock, compton, python, suckless-tools, pcmanfm, file-roller, leafpad, x11-xserver-utils, git, git-aware-prompt, lxappearance, terminator, keepassx, clipit, network-manager-gnome, feh, redshift, xserver-xorg-input-synaptics, gsimplecal, screengrab, libnotify-bin, gawk, dunst, gconf2, ulauncher, qt5ct")
 SET(CPACK_DEBIAN_PACKAGE_REPLACES "sddm, systemd")
 SET(CPACK_DEBIAN_PACKAGE_PRIORITY "optional")
 SET(CPACK_DEBIAN_PACKAGE_SECTION "ratflow")

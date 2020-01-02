@@ -91,6 +91,8 @@ function initUserConfig {
 	safeCp /usr/share/ratflow/configs/gtk-3.0-settings.ini $HOME/.config/gtk-3.0/settings.ini
 	safeCp /usr/share/ratflow/configs/terminator-config $HOME/.config/terminator/config
 	safeCp /usr/share/ratflow/configs/dunstrc $HOME/.config/dunst/dunstrc
+	safeCp /usr/share/ratflow/configs/qt5ct.conf $HOME/.config/qt5ct/qt5ct.conf
+	safeCp /usr/share/ratflow/configs/ulauncher $HOME/.config/ulauncher
 }
 
 
@@ -98,7 +100,7 @@ function safeCp {
 	src="$1"
 	dst="$2"
 	
-	if [ ! -f "$src" ]; then
+	if [ ! -e "$src" ]; then
 		echo "ERROR: source file \"$src\" not found"
 		exit 1
 	fi
@@ -126,12 +128,12 @@ function confirmCp {
 		
 		if [ "$c" != "n" ]; then
 			backupFile="$dst.backup-"$(date +%Y%m%d%H%M)
-			cp -v "$dst" "$backupFile"
-			cp -vf "$src" "$dst"
+			cp -rv "$dst" "$backupFile"
+			cp -rvf "$src" "$dst"
 		fi
 		
 	else
-		cp "$src" "$dst"
+		cp -rv "$src" "$dst"
 	fi
 }
 
