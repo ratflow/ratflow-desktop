@@ -28,13 +28,16 @@ set -e          # exit on command errors (so you MUST handle exit codes properly
 #exec 1>$HOME/.$SCRIPT_NAME.log 2>&1
 # Everything below will go to the file 'log.out':
 
-ratconfig="$HOME/.config/ratflow/config"
+ratconfig="$HOME/.config/ratflow"
+envFile="$ratconfig/profiles/default/env"
+
 confirm=0
 
 #===========================================
 
 
-function usage {
+function usage 
+{
   [ "$*" ] && echo "$0: $*"
   sed -n '/^##/,/^$/s/^## \{0,1\}//p' "$SCRIPT_DIR/$SCRIPT_FILENAME" |
       sed "s/\$SCRIPT_NAME/$SCRIPT_NAME/g" |
@@ -45,7 +48,8 @@ function usage {
 } 2>/dev/null
 
 
-function main {
+function main 
+{
     
     while [ $# -gt 0 ]; do
 	case $1 in
@@ -73,30 +77,34 @@ function main {
 #===========================================
 
 
-function run {
+function run 
+{
 
-	if [ ! -f "$ratconfig" ]
+	if [ ! -d "$ratconfig" ]
 	then
 		initUserConfig
 	fi
 
+	generateProvileEnvFile
 	startWindowManager
 }
 
 
-function initUserConfig {
-	safeCp /usr/share/ratflow/configs/config "$ratconfig"
+function initUserConfig 
+{
+	safeCp /usr/share/ratflow/default "$ratconfig/profiles/default"
 	
-	safeCp /usr/share/ratflow/configs/gtkrc-2.0 $HOME/.gtkrc-2.0
-	safeCp /usr/share/ratflow/configs/gtk-3.0-settings.ini $HOME/.config/gtk-3.0/settings.ini
-	safeCp /usr/share/ratflow/configs/terminator-config $HOME/.config/terminator/config
-	safeCp /usr/share/ratflow/configs/dunstrc $HOME/.config/dunst/dunstrc
-	safeCp /usr/share/ratflow/configs/qt5ct.conf $HOME/.config/qt5ct/qt5ct.conf
-	safeCp /usr/share/ratflow/configs/ulauncher $HOME/.config/ulauncher
+	safeCp /usr/share/ratflow/app_configs/gtkrc-2.0 $HOME/.gtkrc-2.0
+	safeCp /usr/share/ratflow/app_configs/gtk-3.0-settings.ini $HOME/.config/gtk-3.0/settings.ini
+	safeCp /usr/share/ratflow/app_configs/terminator-config $HOME/.config/terminator/config
+	safeCp /usr/share/ratflow/app_configs/dunstrc $HOME/.config/dunst/dunstrc
+	safeCp /usr/share/ratflow/app_configs/qt5ct.conf $HOME/.config/qt5ct/qt5ct.conf
+	safeCp /usr/share/ratflow/app_configs/ulauncher $HOME/.config/ulauncher
 }
 
 
-function safeCp {
+function safeCp 
+{
 	src="$1"
 	dst="$2"
 	
@@ -110,7 +118,8 @@ function safeCp {
 	confirmCp "$src" "$dst"
 }
 
-function confirmCp { 
+function confirmCp 
+{ 
 	src="$1"
 	dst="$2"
 	
@@ -137,8 +146,32 @@ function confirmCp {
 	fi
 }
 
-function startWindowManager {
-	i3 -c "$ratconfig"
+function generateProvileEnvFile 
+{    
+    if [ ! -f "$envFile" ]; then
+    
+        while [ -z "$modKey" ]; do
+                modKey=$(zenity \
+                    --text="Please select MOD key" \
+                    --list \
+                    --column=Check \
+                    --column="Key name" \
+                    --column "Key" \
+                    TRUE "Mod4" "WIN key" \
+                    FALSE "Mod1" "ALT Key" \
+                    --radiolist)
+        done
+    
+    mkdir -p $(dirname "$envFile") ||:
+    echo "export RF_MOD_KEY=$modKey" > "$envFile"
+
+    fi
+}
+
+function startWindowManager 
+{
+    rfreload --no-apply
+	i3 -c "$ratconfig/config"
 }
 
 
