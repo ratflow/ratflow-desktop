@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# DANGER='\033[0;31m'
+# WARNING='\033[1;33m'
+# INFO='\033[0;34m'
+# NC='\033[0m' # No Color
+
+DANGER='#FF0000'
+WARNING='#FFFF00'
+INFO='#0000FF'
+NC='' # No Color
+
+topLine=$(top -b -n 1 | head -8 | tail -1)
+
+topApp=$(echo -n $topLine | awk '{print $12}')
+cpuLoad=$(echo -n $topLine | awk '{print $9}')
+
+COLOR=$NC
+cpuInt=$(printf "%.0f" $cpuLoad)
+
+if [ $cpuInt -gt 80 ]; then 
+    COLOR=$DANGER
+elif [ $cpuInt -gt 50 ]; then 
+    COLOR=$WARNING
+fi
+
+printf "${cpuLoad}%% ${topApp}\n\n${COLOR}\n"
+
+
+exit 0

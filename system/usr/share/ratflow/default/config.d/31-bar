@@ -1,0 +1,32 @@
+
+#------------------------------------------------
+#
+# i3 bar 
+#
+#------------------------------------------------
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+bar {
+        font xft:$fontName, FontAwesome $barFontsize
+
+        status_command i3blocks -c $configDir/profiles/current/i3blocks.conf
+        
+        #Use tray_output primary/none/<output name> to define where the tray should be (multiple tray_output can be used)
+        #Remember to set any of your displays to primary (i.e. using xrandr)
+        #tray_output primary 
+        position top
+
+    colors {
+          separator $clFocusedActiveText
+          background $clUnfocusedBackground
+          statusline $clFocusedActiveText
+
+#         border             background                     text
+          focused_workspace  $clFocusedActiveBackground     $clFocusedActiveBackground      $clFocusedActiveText
+          active_workspace   $clFocusedActiveBorder         $clFocusedActiveBackground      $clFocusedActiveText
+          inactive_workspace $clUnfocusedBackground         $clUnfocusedBackground	        $clUnfocusedText
+          urgent_workspace   $clUrgentBorder                $clUrgentBackground             $clUrgentText
+        }
+}
+

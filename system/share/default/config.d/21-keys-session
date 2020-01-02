@@ -1,0 +1,32 @@
+#------------------------------------------------
+#
+# session/power management
+#
+#------------------------------------------------
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# use i3exit script from https://github.com/giacomos/i3wm-config/blob/master/i3exit
+set $exitScript /usr/share/ratflow/scripts/i3exit
+
+mode "session_management" {
+    bindsym l exec --no-startup-id $exitScript lock, mode "default"
+    bindsym e exec --no-startup-id $exitScript logout, mode "default"
+    bindsym s exec --no-startup-id $exitScript suspend, mode "default"
+    bindsym h exec --no-startup-id $exitScript hibernate, mode "default"
+    bindsym r exec --no-startup-id $exitScript reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id $exitScript shutdown, mode "default"
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+Pause mode "session_management"
+
