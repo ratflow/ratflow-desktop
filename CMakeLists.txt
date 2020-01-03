@@ -1,8 +1,6 @@
 cmake_minimum_required(VERSION 3.1.0)
 
-##############################################
 ########## GENERAL PROJECT SETTINGS ##########
-##############################################
 
 project ( ratflow-desktop NONE )
 set( VERSION_MAJOR 1 )
@@ -10,13 +8,7 @@ set( VERSION_MINOR 1 )
 set( VERSION_PATCH 0 )
 
 
-##############################################
-
-
-
-##############################################
-################# INSTALLATION ###############
-##############################################
+################ INSTALLATION ################
 
 set( CMAKE_PROJECT_NAME ratflow-desktop )
 
@@ -27,35 +19,6 @@ set( CMAKE_PROJECT_NAME ratflow-desktop )
 set(PACKAGE_SYSTEM_NAME "debian" CACHE STRING "Destination system release and version")
 
 set(PACKAGE_SYSTEM_ARCH "multiarch" CACHE STRING "Destination system architecture")
-
-###### GET SYSTEM RELEASE ######
-if(${PACKAGE_SYSTEM_NAME} STREQUAL "")
-	
-	###### GET SYSTEM RELEASE ######
-	set (EXECUTE_COMMAND lsb_release -rs)
-	execute_process(COMMAND ${EXECUTE_COMMAND} OUTPUT_VARIABLE system_release_raw)
-	
-	###### REMOVE ENDLINE FROM SYSTEM RELEASE ######
-	string(LENGTH ${system_release_raw} len)
-	math(EXPR length "${len} - 1")
-	string(SUBSTRING ${system_release_raw} 0 ${length} SYSTEM_RELEASE)
-	
-	###### GET SYSTEM NAME ######
-	set (EXECUTE_COMMAND lsb_release -cs)
-	execute_process(COMMAND ${EXECUTE_COMMAND} OUTPUT_VARIABLE system_name_raw)
-	
-	###### REMOVE ENDLINE FROM SYSTEM NAME ######
-	string(LENGTH ${system_name_raw} len)
-	math(EXPR length "${len} - 1")
-	string(SUBSTRING ${system_name_raw} 0 ${length} SYSTEM_NAME)
-	
-	SET(CMAKE_SYSTEM_NAME "${SYSTEM_NAME}-${SYSTEM_RELEASE}")
-	
-	
-else(${PACKAGE_SYSTEM_NAME} STREQUAL "")
-	SET(CMAKE_SYSTEM_NAME "${PACKAGE_SYSTEM_NAME}")
-endif(${PACKAGE_SYSTEM_NAME} STREQUAL "")
-
 
 ###### INSTALLATION PATHS ######
 
@@ -72,12 +35,6 @@ INSTALL(
   DESTINATION /usr/
 )
 
-INSTALL(
-  PROGRAMS ${CMAKE_CURRENT_SOURCE_DIR}/system/usr/bin/ratflow-session
-  DESTINATION /usr/bin/
-)
-
-
 ###### CPACK DEB PACKAGE SETTINGS ######
 
 IF(EXISTS "${CMAKE_ROOT}/Modules/CPack.cmake")
@@ -87,10 +44,10 @@ SET(CPACK_GENERATOR "DEB")
 SET(CPACK_SET_DESTDIR "on")
 
 SET(CPACK_PACKAGE_DESCRIPTION "")
-SET(CPACK_PACKAGE_DESCRIPTION_SUMMARY "RATFLOW desktop environment")
-SET(CPACK_PACKAGE_VENDOR "Łukasz Chodyła")
+SET(CPACK_PACKAGE_DESCRIPTION_SUMMARY "RATFLOW desktop environment (full)")
+SET(CPACK_PACKAGE_VENDOR "Lukasz Chodyla")
 SET(CPACK_PACKAGE_CONTACT ${CPACK_PACKAGE_VENDOR})
-SET(CPACK_DEBIAN_PACKAGE_DEPENDS "sddm, qml-module-qtgraphicaleffects, qml-module-qtquick-layouts, i3 (>= 4.10), i3blocks (>= 1.4), i3lock, compton, python, suckless-tools, pcmanfm, file-roller, leafpad, x11-xserver-utils, git, git-aware-prompt, lxappearance, gnome-themes-extra, terminator, keepassx, clipit, network-manager-gnome, feh, redshift, xserver-xorg-input-synaptics, gsimplecal, screengrab, libnotify-bin, gawk, dunst, gconf2, ulauncher, qt5ct, zenity")
+SET(CPACK_DEBIAN_PACKAGE_DEPENDS "ratflow-core, sddm, qml-module-qtgraphicaleffects, qml-module-qtquick-layouts, pcmanfm, file-roller, leafpad, git, git-aware-prompt, keepassx, clipit, network-manager-gnome, redshift, screengrab")
 SET(CPACK_DEBIAN_PACKAGE_REPLACES "sddm, systemd")
 SET(CPACK_DEBIAN_PACKAGE_PRIORITY "optional")
 SET(CPACK_DEBIAN_PACKAGE_SECTION "ratflow")
@@ -105,16 +62,6 @@ SET(CPACK_PACKAGE_FILE_NAME "${CMAKE_PROJECT_NAME}_${VERSION_MAJOR}.${VERSION_MI
 SET(CPACK_SOURCE_PACKAGE_FILE_NAME "${CPACK_PACKAGE_FILE_NAME}")
 
 SET(CPACK_DEBIAN_PACKAGE_CONTROL_EXTRA "${CMAKE_SOURCE_DIR}/deb/preinst;${CMAKE_SOURCE_DIR}/deb/postinst;${CMAKE_SOURCE_DIR}/deb/prerm;${CMAKE_SOURCE_DIR}/deb/postrm;")
-
-#
-# more:
-# https://cmake.org/cmake/help/v3.3/module/CPackDeb.html
-# https://cmake.org/Wiki/CMake:Packaging_With_CPack
-#
-
-
-#SET(CPACK_COMPONENTS_ALL Libraries ApplicationData)
-#set(CPACK_COMPONENTS_ALL_IN_ONE_PACKAGE 1)
 
 INCLUDE(CPack)
 
