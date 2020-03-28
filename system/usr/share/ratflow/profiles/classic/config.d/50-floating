@@ -1,0 +1,9 @@
+#------------------------------------------------
+#
+# floating windows
+#
+#------------------------------------------------
+
+
+for_window [class="screengrab"] floating enable
+for_window [class="gsimplecal"] floating enable

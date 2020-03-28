@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
+Terminal=false
+Exec="/usr/bin/xkill"
+Type=Application
+Name=xkill
+GenericName=xkill
+Icon=/usr/share/icons/skull.svg

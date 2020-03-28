@@ -1,0 +1,27 @@
+#------------------------------------------------
+#
+# application running bindings
+#
+#------------------------------------------------
+
+# start a terminal
+#bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec terminator -p ratflow-terminator
+
+# start dmenu (a program launcher)
+#bindsym $mod+d exec dmenu_run
+#bindsym Mod1+F2 exec dmenu_run
+
+#let's replace dmenu by custom launcher:
+bindsym $mod+d exec ulauncher
+bindsym Mod1+F2 exec ulauncher
+
+# calendar
+bindsym $mod+c exec gsimplecal
+
+# translation of selected text (polish <-> english)
+bindsym $mod+t exec notify-send -t 20000 "Selected text translation EN->PL:\n\n`$scriptsDir/translate-shell -b :pl \"$(xsel)\"`"
+bindsym $mod+Shift+t exec notify-send -t 20000 "Selected text translation PL->EN:\n\n`$scriptsDir/translate-shell -b -s pl \"$(xsel)\"`"
+
+# run app assigned to current workspace
+bindsym $mod+Shift+a exec $scriptsDir/autoapp
