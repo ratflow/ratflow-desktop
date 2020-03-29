@@ -33,7 +33,7 @@ function usage {
       sed "s/\$SCRIPT_NAME/$SCRIPT_NAME/g" |
       sed "s/\$SCRIPT_FILENAME/$SCRIPT_FILENAME/g" |
       sed "s/\$SCRIPT_VERSION/$SCRIPT_VERSION/g"
-      
+
   exit 2
 } 2>/dev/null
 
@@ -48,35 +48,35 @@ pkgArchitecture=$(dpkg --print-architecture)
 function main {
 
     if [ $# -eq 0 ]; then
-	usage;
+    usage;
     fi
-    
+
     while [ $# -gt 0 ]; do
-	case $1 in
-	    ('-h'|'--help')
-		usage 2>&1;;
+    case $1 in
+        ('-h'|'--help')
+        usage 2>&1;;
             ('-v'|'--version')
                 echo "$SCRIPT_NAME v$SCRIPT_VERSION"
                 exit 0;;
-	    ('-s'|'--system')
-		shift
-		if [ $# -eq 0 ]; then
-		    usage;
-		fi
-		targetSystem="$1";;
-	    ('-a'|'--arch')
-		shift
-		pkgArchitecture="$1";;
-	    ('--')
-		shift
-		break;;
-	    ('-'*)
-		echo -e "\n$0 $1: unknown option. Use --help to learn more.\n"
-		exit 3
-		break;;
-	esac
-	
-	shift
+        ('-s'|'--system')
+        shift
+        if [ $# -eq 0 ]; then
+            usage;
+        fi
+        targetSystem="$1";;
+        ('-a'|'--arch')
+        shift
+        pkgArchitecture="$1";;
+        ('--')
+        shift
+        break;;
+        ('-'*)
+        echo -e "\n$0 $1: unknown option. Use --help to learn more.\n"
+        exit 3
+        break;;
+    esac
+
+    shift
     done
 
     run
@@ -87,12 +87,12 @@ function main {
 
 function run {
     debSubdir="$SCRIPT_DIR/$targetSystem"
-    
+
     if [ ! -d "$debSubdir" ]; then
-	echo "Directory not found: $debSubdir"
-	exit 1
+    echo "Directory not found: $debSubdir"
+    exit 1
     fi
-	
+
     initializeCache
     createPackage
     cleanCache
@@ -101,7 +101,7 @@ function run {
 function initializeCache {
 
     echo "Creating cache"
-    
+
     mkdir -p "$cacheDir"
     pushd "$cacheDir"
     echo "#!/bin/bash
@@ -122,21 +122,22 @@ function createPackage {
     pushd "$cacheDir"
 
     checkinstall \
-	--install=no \
-	--fstrans=yes \
-	--requires="`cat $debSubdir/requires`" \
-	--conflicts="`cat $debSubdir/conflicts`" \
-	--replaces="`cat $debSubdir/replaces`" \
-	--pkgversion=$pkgVersion \
-	--pkgsource="$pkgSource" \
-	--pkgname=$project \
-	--pkglicense=$license \
-	--maintainer="$maintainer" \
-	--pkgarch=$pkgArchitecture \
-	--deldesc=no \
-	--nodoc \
-	--pakdir=.. \
-	./install.sh
+    --install=no \
+    --fstrans=yes \
+    --requires="`cat $debSubdir/requires`" \
+    --conflicts="`cat $debSubdir/conflicts`" \
+    --replaces="`cat $debSubdir/replaces`" \
+    --pkgversion=$pkgVersion \
+    --pkgrelease=$pkgRelease \
+    --pkgsource="$pkgSource" \
+    --pkgname=$project \
+    --pkglicense=$license \
+    --maintainer="$maintainer" \
+    --pkgarch=$pkgArchitecture \
+    --deldesc=no \
+    --nodoc \
+    --pakdir=.. \
+    ./install.sh
 
     popd
 }
@@ -151,4 +152,4 @@ function cleanCache {
 #===========================================
 
 main "$@"
- 
+
