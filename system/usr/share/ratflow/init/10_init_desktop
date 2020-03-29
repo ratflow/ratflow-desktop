@@ -4,4 +4,4 @@
 
 safeCp $rfdir/app_configs/ulauncher $HOME/.config/ulauncher
 
-rfreload --no-apply --profile classic
+setDefaultProfile classic

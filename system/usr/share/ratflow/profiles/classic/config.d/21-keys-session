@@ -4,11 +4,11 @@
 #
 #------------------------------------------------
 
-# reload the configuration file
-bindsym $mod+Shift+c reload
+# regenerate and reload i3 configuration file
+bindsym $mod+Shift+c exec rfreload
 
-# regenerate i3 configuration file and restart it inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r rfreload
+# regenerate i3 configuration file and restart i3 (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r exec rfreload --restart
 
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"

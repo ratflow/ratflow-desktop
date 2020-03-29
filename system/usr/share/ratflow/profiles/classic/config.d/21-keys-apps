@@ -4,6 +4,9 @@
 #
 #------------------------------------------------
 
+# calendar
+bindsym $mod+c exec osmo -c
+
 # screenshots (full, region, active)
 bindsym Print exec screengrab --fullscreen
 bindsym Shift+Print exec screengrab --region
@@ -13,3 +16,7 @@ bindsym Control+Print exec screengrab --active
 bindsym $mod+Control+Next exec $scriptsDir/redshift-adjust -100
 bindsym $mod+Control+Prior exec $scriptsDir/redshift-adjust +100
 bindsym $mod+Control+l exec bash -c 'pgrep redshift && killall redshift || redshift'
+
+# translation of selected text (polish <-> english)
+bindsym $mod+t exec notify-send -t 20000 "Selected text translation EN->PL:\n\n`$scriptsDir/translate-shell -b :pl \"$(xsel)\"`"
+bindsym $mod+Shift+t exec notify-send -t 20000 "Selected text translation PL->EN:\n\n`$scriptsDir/translate-shell -b -s pl \"$(xsel)\"`"
