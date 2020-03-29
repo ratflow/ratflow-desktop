@@ -2,7 +2,7 @@
 
 import subprocess, json, os
 
-mapFile = open(os.environ['HOME'] + '/.config/ratflow/profiles/current/autoapp', 'r');
+mapFile = open(os.environ['HOME'] + '/.config/ratflow/profiles/current/autoapp.conf', 'r');
 
 map = json.loads(mapFile.read());
 
