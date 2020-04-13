@@ -134,6 +134,7 @@ function createPackage {
     --pkglicense=$license \
     --maintainer="$maintainer" \
     --pkgarch=$pkgArchitecture \
+    --pkggroup=$pkgGroup \
     --deldesc=no \
     --nodoc \
     --pakdir=.. \

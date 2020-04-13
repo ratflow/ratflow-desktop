@@ -1,7 +1,8 @@
- 
+
 project=ratflow-desktop
 pkgVersion=1.1.1
-pkgRelease=2
+pkgRelease=7
 pkgSource=ratflow
+pkgGroup=ratflow
 maintainer=ratflow
 license=GPL
