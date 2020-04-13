@@ -1,0 +1,13 @@
+#!/bin/bash
+
+currentClass=$(xprop -id $(xprop -root 32x '\t$0' _NET_ACTIVE_WINDOW | cut -f 2) WM_CLASS | awk '{print $NF}')
+
+# unquote
+currentClass=$(eval echo $currentClass)
+
+floatingDir="$HOME/.config/ratflow/profiles/current/config.d/floating.d"
+mkdir -p "$floatingDir"
+echo "for_window [class=\"${currentClass}\"] floating enable" > "$floatingDir/${currentClass}.float"
+
+i3-msg floating enabled
+rfreload

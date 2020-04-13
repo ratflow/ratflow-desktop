@@ -1,0 +1,12 @@
+#!/bin/bash
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+srcTarget=$1
+text=$(xsel)
+
+#trim
+text=${text##*( )}
+text=${text%%*( )}
+
+trResult=$($SCRIPT_DIR/trans -b $srcTarget "${text}")
+
+notify-send -t 20000 "$(echo -e "Selected text translation ${srcTarget^^}: \n${trResult}")"
