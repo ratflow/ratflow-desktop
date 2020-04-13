@@ -128,7 +128,7 @@ function createPackage {
     --conflicts="`cat $debSubdir/conflicts`" \
     --replaces="`cat $debSubdir/replaces`" \
     --pkgversion=$pkgVersion \
-    --pkgrelease=$pkgRelease \
+    --pkgrelease=$pkgRelease-$targetSystem \
     --pkgsource="$pkgSource" \
     --pkgname=$project \
     --pkglicense=$license \
