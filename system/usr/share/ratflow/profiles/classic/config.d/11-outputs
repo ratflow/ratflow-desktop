@@ -16,7 +16,7 @@ mode "outputs" {
 	# mod + shift + 1 to turn off left monitor, mod + 1 to turn it on
 	bindsym $mod+Shift+1 exec xrandr --output $leftOutput --off; mode "default"; restart
 	bindsym $mod+1 exec xrandr --output $leftOutput --auto --left-of $rightOutput;mode "default"; restart
-	
+
 	# mod + shift + 2 to turn off right monitor, mod + 2 to turn it on
 	bindsym $mod+Shift+2 exec xrandr --output $rightOutput --off; mode "default", restart
 	bindsym $mod+2 exec xrandr --output $rightOutput --auto --right-of $leftOutput; mode "default"; restart

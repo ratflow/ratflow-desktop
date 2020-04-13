@@ -18,7 +18,7 @@ exec --no-startup-id synclient VertHysteresis=30
 exec --no-startup-id synclient HorizHysteresis=30
 
 # tune down screen colors with redshift
-exec --no-startup-id redshift -l 52.43:15.15 -m randr
+# exec --no-startup-id redshift -l 52.43:15.15 -m randr
 
 # run network manager
 exec --no-startup-id nm-applet
