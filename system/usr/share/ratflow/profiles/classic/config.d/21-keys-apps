@@ -18,5 +18,5 @@ bindsym $mod+Control+Prior exec $scriptsDir/redshift-adjust +100
 bindsym $mod+Control+l exec bash -c 'pgrep redshift && killall redshift || redshift'
 
 # translation of selected text
-bindsym $mod+t exec $scriptsDir/trans-xsel en:pl
-bindsym $mod+Shift+t exec $scriptsDir/trans-xsel pl:en
+bindsym $mod+t exec bash -c "$scriptsDir/trans-xsel en:pl &"
+bindsym $mod+Shift+t exec bash -c "$scriptsDir/trans-xsel pl:en &"
