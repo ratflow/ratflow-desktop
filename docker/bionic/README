@@ -1,0 +1,13 @@
+NOTE: this image uses ratflow-desktop package from remote repository, NOT from local sources.
+
+Build:
+
+docker build -t ratflow-desktop-bionic .
+
+Run:
+
+docker run -dt --name rfd-bionic -v $HOME:/host --cap-add NET_ADMIN ratflow-desktop-bionic
+
+Connect:
+
+vncviewer $(docker inspect --format '{{ .NetworkSettings.IPAddress }}' rfd-bionic)
