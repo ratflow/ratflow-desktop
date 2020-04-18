@@ -78,14 +78,14 @@ ${{cat ~/my_configs/clementine-key-bindings}}
 <a name="profiles"></a>
 ### Profiles
 
-Actually, the `config.d` directory path is `~/.config/ratflow/profiles/<profile name>/config.d`. This means that it belongs to its profile, and you can easily switch between profiles by calling `rfreload --p` or `rfreload --profile` command with a name of the profile you are willing to switch to. For example:
+Actually, the `config.d` directory path is `~/.config/ratflow/profiles/<profile name>/config.d`. It means that it belongs to its profile and you can easily switch between profiles by calling `rfreload --p` or `rfreload --profile` command with a name of the profile you are willing to switch to. For example:
 
 ```
 rfreload -p john-home-dark
 rfreload --profile work-vertical-screen
 ```
 
-It will in fact just create a symbolic link leading to your profile in `~/.config/ratflow/profiles/current`. Partial configuration files can also be symbolic links leading to some base profile in order to avoid redundancy. If you want to investigate your current profile, use:
+It will just create a symbolic link leading to your profile in `~/.config/ratflow/profiles/current`. Partial configuration files can also be symbolic links leading to some base profile in order to avoid redundancy. If you want to investigate your current profile, use:
 
 ```
 rfreload -i
@@ -116,13 +116,13 @@ Basic dependencies are:
 
 The [ratflow-look](https://github.com/ratflow/ratflow-look) package provides:
 
-*  icon and cursor themes (accordingly *Emerald* and *Bridge*),
+*  icon and cursor themes (*Emerald* and *Bridge* respectively),
 *  GTK and Qt configurations (backups of all existing files will be made during session initialization),
 *  extra Ratflow wallpapers.
 
 <a name="ratflow-desktop"></a>
 ## Ratflow desktop
-This package extends `ratflow-core` by adding  the `classic` profile and extra scripts and third-party applications.  The dependencies are:
+This package extends `ratflow-core` by adding  the `classic` profile, extra scripts and third-party applications.  The dependencies are:
 
 * **pcmanfm** - extremely fast and lightweight file manager,
 * **compton** - compositor for X11 (for transparency and fading),
@@ -182,13 +182,13 @@ By default, workspaces are categorized as follows:
 9. free workspace,
 10. music players,
 
-Newly created windows will be automatically assigned to these workspaces based on the rules contained in `config.d/40-assignments` file.
+Newly created windows will be automatically assigned to these workspaces based on the rules contained in `config.d/40-assignments` file. New workspaces can also be created dynamically using `mod + n` binding.
 
-All these workspaces are accessible by single key binding. From #1 to #9 it's mod key + 1-9, for #10 it's mod key + 0.
+All the above workspaces are accessible by single key binding. From #1 to #9 it's mod key + 1-9, for #10 it's mod key + 0.
 
 <a name="autoapp"></a>
 ### Autoapp
-Beyond "app to workspace" assignments one can assign generic key binding (`mod + shift + a` by default) to launch different application depending on the current workspace. For example, using `mod + shift + a` on the workspace #4 (file manager) will run `pcmanfm`. The same key combination used on the workspace #3 (www) may run firefox or vivaldi. The `autoapp` configuration file resides in profile directory and its default content is:
+Beyond "app to workspace" assignments one can assign generic key binding (`mod + shift + a` by default) to launch different application depending on the current workspace. For example, using `mod + shift + a` on workspace #4 (file manager) will run `pcmanfm`. The same key combination used on workspace #3 (www) may run firefox or vivaldi. The `autoapp` configuration file resides in profile directory and its default content is:
 
 ```
 {
@@ -210,7 +210,7 @@ Beyond "app to workspace" assignments one can assign generic key binding (`mod +
 <a name="bindings"></a>
 ### Key bindings
 
-Please see `config.d/<nn>-keys` files to learn about key bindings. Navigation bindings in most part matches default i3 configuration, but some other may come handy on the first touch:
+Please see `config.d/<nn>-keys` files for more information on key bindings. Navigation bindings in most part matches default i3 configuration, but some other may come handy on the first touch:
 
 * `mod + n` - shows text dialog and creates new workspace with given name,
 * `mod + return` - open new terminal,
