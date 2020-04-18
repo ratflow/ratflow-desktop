@@ -13,6 +13,7 @@
  1. [The "classic" profile](#classic-profile)
     1. [Workspaces](#workspaces)
     1. [Autoapp](#autoapp)
+    1. [Preserve floating state](#floating)
     1. [Key bindings](#bindings)
  1. [Installation](#installation)
 
@@ -207,6 +208,10 @@ Beyond "app to workspace" assignments one can assign generic key binding (`mod +
 
 ```
 
+<a name="floating"></a>
+### Preserve floating state
+Any window can be put into floating state by `mod + lmb` binding. This won't, however, remember its floating state next time it appears. The "i3 way" would be to investigate X11 window class and edit the config file by adding new rule. As we can now use `rfreload` and its "plugins", all we have to do is to press `mod + shift + f`. This action will make focused window float and it will create `config.d/floating.d/<window class>.float` file with new i3 rule.
+
 <a name="bindings"></a>
 ### Key bindings
 
@@ -226,7 +231,9 @@ Please see `config.d/<nn>-keys` files for more information on key bindings. Navi
 * `mod + control + PgDown` - decrease screen color temperature,
 * `mod + control + l` - reset screen color temperature,
 * `mod + shift + c` - run `rfreload`,
-* `mod + shift + r` - run `rfreload --restart` (restarts i3).
+* `mod + shift + r` - run `rfreload --restart` (restarts i3),
+* `mod + c` - show calendar window,
+* `mod + shift + f` - put focused window into permanent floating state.
 
 <a name="installation"></a>
 ## Installation
