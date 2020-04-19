@@ -28,7 +28,7 @@ The idea is to learn before use. Spend some time setting up your battle station,
 ## Tile up!
 We use i3 as window manager. Please see http://i3wm.org to learn more about the goals and features. We also encourage you to watch the excellent Code Cast introduction [here](https://youtu.be/j1I63wGcvU4).
 
-The idea is to cover your whole screen with tiles (windows). Tiles are organized in categorized workspaces. So no, there is no "application bar". You can set up it as you like, nevertheless our package contains the default set described in the "workspaces" section.
+The idea is to cover your whole screen with tiles (windows). Tiles are organized in categorized workspaces. So no, there is no "application bar". You can set it up as you like, nevertheless our package contains the default set described in the "workspaces" section.
 
 <a name="i3limit"></a>
 ## Overcoming i3 limitations
@@ -163,6 +163,8 @@ classic/
 │   ├── 90-exec
 │   ├── 91-exec_always
 │   └── floating.d
+│       ├── Osmo.float
+│       ├── screengrab.float
 │       └── Yad.float
 └── py3status.conf
 ```
