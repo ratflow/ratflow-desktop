@@ -32,7 +32,7 @@ The idea is to cover your whole screen with tiles (windows). Tiles are organized
 
 <a name="i3limit"></a>
 ## Overcoming i3 limitations
-The i3 window manager uses single config file, usually `~/.config/i3/config`. Unfortunately, there is no way to include another config file or whole directory, but this is where Ratflow comes in.
+The i3 window manager uses single config file (usually `~/.config/i3/config`). Unfortunately, there is no way to include another config file or whole directory, but this is where Ratflow comes in.
 
 <a name="config"></a>
 ### Enhanced configuration
@@ -61,7 +61,7 @@ rfreload
 
 the configuration file will be generated in `~/.config/ratflow/config`. Obviously you **shouldn't edit this file**, but you can still use it for diagnostic purposes, especially since `rfreload` will leave notes on the origin of each part.
 
-**But there is more.** Inside your configuration files you can now use `${{<command>}}` syntax to run **shell commands** and use their output as a part of configuration file or just hook some operation to (re)load action. For example, the `11-displays` configuration file may contain such a snippet:
+**But there is more.** Inside your configuration files you can now use `${{<command>}}` syntax to run **shell commands** and use their output as a part of configuration file. For example, the `11-displays` configuration file may contain such a snippet:
 
 ```sh
 set $leftOutput ${{xrandr | grep ' connected' | awk 'NR==1{print $1}'}}
@@ -71,22 +71,23 @@ exec xrandr --output $rightOutput --primary
 exec xrandr --output $leftOutput --left-of $rightOutput
 ```
 
-Any subsequent file can be included by simply printing all or part of it:
+You can also mute the output and hook some operations to (re)load action. Any subsequent file can be included by simply printing all or part of it:
 
 ```
 ${{cat ~/my_configs/clementine-key-bindings}}
 ```
+
 <a name="profiles"></a>
 ### Profiles
 
-Actually, the `config.d` directory path is `~/.config/ratflow/profiles/<profile name>/config.d`. It means that it belongs to its profile and you can easily switch between profiles by calling `rfreload --p` or `rfreload --profile` command with a name of the profile you are willing to switch to. For example:
+The actual location of `config.d` directory is `~/.config/ratflow/profiles/<profile name>/config.d`. It means that it belongs to its profile and you can easily switch between profiles by calling `rfreload --p` or `rfreload --profile` command with a name of the profile you are willing to switch to. For example:
 
 ```
 rfreload -p john-home-dark
 rfreload --profile work-vertical-screen
 ```
 
-It will just create a symbolic link leading to your profile in `~/.config/ratflow/profiles/current`. Partial configuration files can also be symbolic links leading to some base profile in order to avoid redundancy. If you want to investigate your current profile, use:
+It will just create a symbolic link leading to your profile in `~/.config/ratflow/profiles/current`. Partial configuration files can also be symbolic links leading to some base profile in order to avoid redundancy. If you want more information about your current profile, use:
 
 ```
 rfreload -i
