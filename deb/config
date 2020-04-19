@@ -1,7 +1,7 @@
 
 project=ratflow-desktop
 pkgVersion=1.1.1
-pkgRelease=12
+pkgRelease=13
 pkgSource=ratflow
 pkgGroup=ratflow
 maintainer=ratflow
