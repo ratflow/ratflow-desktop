@@ -1,0 +1,35 @@
+
+#------------------------------------------------
+#
+# i3 bar
+#
+#------------------------------------------------
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+bar {
+        position top
+        i3bar_command i3bar -t
+        status_command py3status -c $configDir/profiles/current/py3status.conf
+        font xft:$fontName, FontAwesome $barFontsize
+        tray_padding 0
+
+        #Use tray_output primary/none/<output name> to define where the tray should be (multiple tray_output can be used)
+        #Remember to set any of your displays to primary (i.e. using xrandr)
+        #tray_output primary
+
+    colors {
+          separator $clFocusedActiveText
+          #background $clUnfocusedBackground
+          background #00000070
+          #statusline #FFFFFF99
+          statusline $clFocusedActiveText
+
+#         border             background                     text
+          focused_workspace  $clFocusedActiveBackground     $clFocusedActiveBackground      $clFocusedActiveText
+          active_workspace   $clFocusedActiveBorder         $clFocusedActiveBackground      $clFocusedActiveText
+          inactive_workspace $clUnfocusedBackground         $clUnfocusedBackground	        $clUnfocusedText
+          urgent_workspace   $clUrgentBorder                $clUrgentBackground             $clUrgentText
+        }
+}
+

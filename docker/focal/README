@@ -1,0 +1,13 @@
+NOTE: this image uses ratflow-desktop package from remote repository, NOT from local sources.
+
+Build:
+
+docker build -t ratflow-desktop-focal .
+
+Run:
+
+docker run -dt --name rfd-focal -v $HOME:/host --cap-add NET_ADMIN ratflow-desktop-focal
+
+Connect:
+
+vncviewer $(docker inspect --format '{{ .NetworkSettings.IPAddress }}' rfd-focal)

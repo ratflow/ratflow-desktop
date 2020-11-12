@@ -1,7 +1,0 @@
-#!/bin/bash
-
-chmod -R +x /usr/share/ratflow/scripts/*
-chmod -R +x /usr/local/bin/*
-
-# enable icons in kde applications
-echo "QT_QPA_PLATFORMTHEME=qt5ct" >> /etc/environment

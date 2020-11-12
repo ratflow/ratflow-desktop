@@ -1,0 +1,20 @@
+#------------------------------------------------
+#
+# application running bindings
+#
+#------------------------------------------------
+
+# start a terminal
+#bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec terminator -p ratflow-terminator
+
+# start dmenu (a program launcher)
+#bindsym $mod+d exec dmenu_run
+#bindsym Mod1+F2 exec dmenu_run
+
+#let's replace dmenu by custom launcher:
+bindsym $mod+d exec ulauncher
+bindsym Mod1+F2 exec ulauncher
+
+# run app assigned to current workspace
+bindsym $mod+Shift+a exec $scriptsDir/autoapp

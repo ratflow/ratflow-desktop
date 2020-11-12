@@ -1,0 +1,1 @@
+bindsym $mod+Shift+f exec $scriptsDir/always-float
