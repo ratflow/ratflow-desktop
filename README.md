@@ -271,4 +271,7 @@ sudo apt-get update
 sudo apt-get install ratflow-desktop
 ```
 
+Note for Ubuntu 22.04 (Jammy Jellyfish): a temporary deb-pack is available for download here: http://share.nixlab.in/rfjammy
+
+
 Enjoy!
