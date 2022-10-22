@@ -24,7 +24,7 @@ exec --no-startup-id synclient HorizHysteresis=30
 exec --no-startup-id nm-applet
 
 # run clipboard manager
-exec --no-startup-id bash -c "/usr/bin/clipit &"
+exec --no-startup-id parcellite
 #exec --no-startup-id clipit
 
 # run bluetooth manager
