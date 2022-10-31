@@ -116,9 +116,9 @@ Basic dependencies are:
 <a name="ratflow-look"></a>
 ## Ratflow look
 
-The [ratflow-look](https://github.com/ratflow/ratflow-look) package provides:
+The ratflow-look package essentials are now back in ratflow-desktop, that is:
 
-*  icon and cursor themes (*Emerald* and *Bridge* respectively),
+*  fonts,
 *  GTK and Qt configurations (backups of all existing files will be made during session initialization),
 *  extra Ratflow wallpapers.
 

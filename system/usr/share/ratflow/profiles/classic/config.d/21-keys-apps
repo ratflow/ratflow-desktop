@@ -15,8 +15,10 @@ bindsym Control+Print exec screengrab --active
 # redshift
 bindsym $mod+Control+Next exec $scriptsDir/redshift-adjust -100
 bindsym $mod+Control+Prior exec $scriptsDir/redshift-adjust +100
-bindsym $mod+Control+l exec bash -c 'redshift -x'
+bindsym $mod+Control+l exec redshift -x
 
 # translation of selected text
 bindsym $mod+t exec bash -c "$scriptsDir/trans-xsel en:pl &"
 bindsym $mod+Shift+t exec bash -c "$scriptsDir/trans-xsel pl:en &"
+
+

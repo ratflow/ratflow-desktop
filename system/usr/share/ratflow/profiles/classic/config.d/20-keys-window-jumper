@@ -1,0 +1,5 @@
+
+bindsym Mod1+Tab exec "$scriptsDir/dmenu-i3-window-jumper &"
+bindsym $mod+Tab workspace back_and_forth
+
+

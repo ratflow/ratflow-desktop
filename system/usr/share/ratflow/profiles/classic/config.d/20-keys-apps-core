@@ -13,8 +13,10 @@ bindsym $mod+Return exec terminator -p ratflow-terminator
 #bindsym Mod1+F2 exec dmenu_run
 
 #let's replace dmenu by custom launcher:
-bindsym $mod+d exec ulauncher
-bindsym Mod1+F2 exec ulauncher
+bindsym $mod+d exec ${{command -v ulauncher 2>&1 >/dev/null && echo ulauncher || echo dmenu_run}}
+bindsym Mod1+F2 exec dmenu_run
 
 # run app assigned to current workspace
 bindsym $mod+Shift+a exec $scriptsDir/autoapp
+
+

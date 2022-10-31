@@ -5,8 +5,8 @@
 #------------------------------------------------
 
 # monitors - use "xrandr --listmonitors" to obtain your output names
-set $leftOutput ${{xrandr | grep ' connected' | awk 'NR==1{print $1}'}}
-set $rightOutput ${{xrandr | grep ' connected' | awk 'NR==2{print $1}'}}
+set $leftOutput ${{xrandr | grep connected | awk 'NR==1{print $1}'}}
+set $rightOutput ${{xrandr | grep connected | awk 'NR==2{print $1}'}}
 
 # setup monitors
 exec xrandr --output $rightOutput --primary
@@ -27,4 +27,5 @@ mode "outputs" {
 }
 
 bindsym $mod+m mode "outputs"
+
 
