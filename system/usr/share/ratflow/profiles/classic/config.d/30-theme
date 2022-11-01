@@ -12,7 +12,7 @@ set $barFontSize 9
 # colors
 set $clFocusedActiveBorder          #252525
 set $clFocusedActiveBackground      #252525
-set $clFocusedActiveText            #D9D9D9
+set $clFocusedActiveText            #75B0D0
 set $clFocusedInactiveBorder        #101010
 set $clFocusedinactiveBackground    #101010
 set $clFocusedInactiveText          #606060
