@@ -1,0 +1,3 @@
+SUBSYSTEM=="backlight", ACTION=="add",
+RUN+="/bin/bash -c '/bin/chmod o+w /sys/class/backlight/*/brightness'"
+

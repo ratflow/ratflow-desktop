@@ -61,7 +61,7 @@ rfreload
 
 the configuration file will be generated in `~/.config/ratflow/config`. Obviously you **shouldn't edit this file**, but you can still use it for diagnostic purposes, especially since `rfreload` will leave notes on the origin of each part.
 
-**But there is more.** Inside your configuration files you can now use `${{<command>}}` syntax to run **shell commands** and use their output as a part of configuration file. For example, the `11-displays` configuration file may contain such a snippet:
+There is more: inside your configuration files you can now use `${{<command>}}` syntax to run **shell commands** and use their output as a part of configuration file. For example, the `11-displays` configuration file may contain such a snippet:
 
 ```sh
 set $leftOutput ${{xrandr | grep ' connected' | awk 'NR==1{print $1}'}}
@@ -76,6 +76,7 @@ You can also mute the output and hook some operations to (re)load action. Any su
 ```
 ${{cat ~/my_configs/clementine-key-bindings}}
 ```
+
 
 <a name="profiles"></a>
 ### Profiles
@@ -92,6 +93,7 @@ It will just create a symbolic link leading to your profile in `~/.config/ratflo
 ```
 rfreload -i
 ```
+
 
 See `rfreload --help` to learn more.
 
@@ -116,9 +118,9 @@ Basic dependencies are:
 <a name="ratflow-look"></a>
 ## Ratflow look
 
-The [ratflow-look](https://github.com/ratflow/ratflow-look) package provides:
+The ratflow-look package essentials are now back in ratflow-desktop, that is:
 
-*  icon and cursor themes (*Emerald* and *Bridge* respectively),
+*  fonts,
 *  GTK and Qt configurations (backups of all existing files will be made during session initialization),
 *  extra Ratflow wallpapers.
 
@@ -133,7 +135,7 @@ This package extends `ratflow-core` by adding  the `classic` profile, extra scri
 * **ulauncher** - extensible application launcher,
 * **file-roller** - archive manager,
 * **howl** - lightweight and customizable general purpose text editor ([see more](https://howl.io)) ,
-* **clipit** - clipboard manager,
+* **clipit/parcellite** - clipboard manager,
 * **network-manager-gnome** - network manager,
 * **redshift** - adjusts the color temperature of your screen,
 * **screengrab** - crossplatform tool for getting screenshots.
@@ -220,6 +222,7 @@ Any window can be put into floating state by `mod + lmb` binding. This won't, ho
 
 Please see `config.d/<nn>-keys` files for more information on key bindings. Navigation bindings in most part matches default i3 configuration, but some other may come handy on the first touch:
 
+* `mod + [1-9]` - switch current workspace,
 * `mod + n` - shows text dialog and creates new workspace with given name,
 * `mod + return` - open new terminal,
 * `mod + shift + q` - close focused window,
@@ -236,7 +239,9 @@ Please see `config.d/<nn>-keys` files for more information on key bindings. Navi
 * `mod + shift + c` - run `rfreload`,
 * `mod + shift + r` - run `rfreload --restart` (restarts i3),
 * `mod + c` - show calendar window,
-* `mod + shift + f` - put focused window into permanent floating state.
+* `mod + shift + f` - put focused window into permanent floating state,
+* `mod + tab` - back and forth workspace switch,
+* `alt + tab` - run window jumper.
 
 <a name="installation"></a>
 ## Installation
@@ -245,31 +250,25 @@ If you are new to i3wm, please start by reading i3 configuration reference and t
 
 If you are into customization and you don't want most of the third-party apps in your system - use `ratflow-core` instead of `ratflow-desktop` and edit `core` user profile.
 
-Debian/Ubuntu users can try our APT repository as described below.
+Debian/Ubuntu users can try our APT repository as described below. Packages for different distributions can be browsed [here](http://nixlab.in:12080/dists/)
 
-Add public key:
+Ubuntu 22.04 (Jammy Jellyfish):
 
 ```sh
-wget -O - http://apt.nixlab.in/public.gpg.key | sudo apt-key add -
+echo 'deb [trusted=yes arch=all] http://nixlab.in:12080 jammy main' | sudo tee /etc/apt/sources.list.d/nixlab.list
+sudo apt update
+sudo apt install ratflow-desktop
 ```
 
 Ubuntu 20.04 (Focal Fossa):
 
 ```sh
-echo "deb http://apt.nixlab.in/ focal main" | sudo tee /etc/apt/sources.list.d/apt.nixlab.in.list
-
-sudo apt-get update
-sudo apt-get install ratflow-desktop
+echo 'deb [trusted=yes arch=all] http://nixlab.in:12080 focal main' | sudo tee /etc/apt/sources.list.d/nixlab.list
+sudo apt update
+sudo apt install ratflow-desktop
 ```
 
-Ubuntu 18.04 (Bionic Beaver):
 
-```sh
-echo "deb http://apt.nixlab.in/ bionic main" | sudo tee /etc/apt/sources.list.d/apt.nixlab.in.list
-
-sudo apt-get update
-sudo apt-get install ratflow-desktop
-```
 
 Note for Ubuntu 22.04 (Jammy Jellyfish): a temporary deb-pack is available for download here: http://share.nixlab.in/rfjammy
 

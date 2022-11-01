@@ -1,0 +1,30 @@
+#!/bin/bash
+
+cmd=$1
+
+# try hdmi first
+#sink=$(pactl list sinks | grep "Name:" | grep -i hdmi | awk '{print $2}')
+
+# use the sink that was most recently connected 
+if [ -z "$sink" ]; then
+  sink=$(pactl list sinks | grep "Name:" | awk '{print $2}' | tail -n 1)
+fi
+
+case $cmd in
+
+  up | u)
+    pactl set-sink-volume $sink +5%
+    ;;
+
+  down | d)
+    pactl set-sink-volume $sink -5%
+    ;;
+
+  toggle | t)
+    pactl set-sink-mute $sink toggle
+    ;;
+
+  *)
+    echo -n "unknown command: $cmd"
+    ;;
+esac

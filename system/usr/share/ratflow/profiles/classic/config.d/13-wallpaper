@@ -5,12 +5,13 @@
 #------------------------------------------------
 
 # wallpapers (second for multihead)
-set $wallpaper1 /usr/share/ratflow/images/rf_wp_06.jpg
-set $wallpaper2 /usr/share/ratflow/images/rf_wp_06.jpg
+set $wallpaper1 /usr/share/ratflow/images/rf_wp_01.jpg
+set $wallpaper2 /usr/share/ratflow/images/rf_wp_01.jpg
 
 # set wallpapers
 exec_always --no-startup-id sleep 2 && feh --bg-scale $wallpaper1 --bg-scale $wallpaper2
 
 # apply xrandr settings
 exec_always --no-startup-id sleep 2 && xrandr --output $leftOutput --left-of $rightOutput
+
 

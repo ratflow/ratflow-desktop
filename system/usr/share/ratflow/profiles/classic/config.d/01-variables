@@ -13,3 +13,5 @@ set $scriptsDir /usr/share/ratflow/scripts
 # config dir
 set $configDir ${{echo "$HOME/.config/ratflow"}}
 set $profileConfigDir ${{echo "$HOME/.config/ratflow/profiles/current/config.d"}}
+
+

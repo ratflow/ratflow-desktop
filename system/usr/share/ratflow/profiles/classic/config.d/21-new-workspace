@@ -1,2 +1,3 @@
 # create temporary workspace
 bindsym $mod+n exec name=$(yad --entry --splash --title "Create workspace" --text "Name of temporary workspace:") && i3-msg workspace $name
+

@@ -5,3 +5,4 @@
 safeCp $rfdir/app_configs/ulauncher $HOME/.config/ulauncher
 
 setDefaultProfile classic
+

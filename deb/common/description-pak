@@ -1,1 +1,5 @@
-Ratflow desktop environment. See more at http://github.com/ratflow
+  Ratflow desktop environment
+
+  This is i3-based desktop environment.
+  Ratflow desktop iintroduces multi-file configuration, shell expressions parsing, configuration profile switching and more. See more at http://git.io/ratflow
+

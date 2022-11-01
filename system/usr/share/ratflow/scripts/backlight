@@ -1,0 +1,21 @@
+#!/bin/bash
+set -x
+
+if xbacklight -get; then
+  if [[ "$1" == "up" ]]; then 
+    xbacklight -inc 20
+  else
+    xbacklight -dec 20
+  fi
+else
+  val=$(cat /sys/class/backlight/*/brightness | head -1)
+  if [[ "$1" == "up" ]]; then
+    val=$((val+20))
+  else
+    val=$((val-20))
+  fi
+  for bk in /sys/class/backlight/*; do
+    echo $val > $bk/brightness
+  done
+fi
+
