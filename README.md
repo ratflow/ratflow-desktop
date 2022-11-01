@@ -94,7 +94,6 @@ It will just create a symbolic link leading to your profile in `~/.config/ratflo
 rfreload -i
 ```
 
-You can use the `rfcd` alias to go to the current profile configuration directory.
 
 See `rfreload --help` to learn more.
 
