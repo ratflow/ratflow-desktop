@@ -9,8 +9,8 @@ set $leftOutput ${{xrandr | grep connected | awk 'NR==1{print $1}'}}
 set $rightOutput ${{xrandr | grep connected | awk 'NR==2{print $1}'}}
 
 # setup monitors
-exec xrandr --output $rightOutput --primary
-exec xrandr --output $leftOutput --left-of $rightOutput
+exec --no-startup-id xrandr --output $rightOutput --primary
+exec --no-startup-id xrandr --output $leftOutput --left-of $rightOutput
 
 mode "outputs" {
 	# mod + shift + 1 to turn off left monitor, mod + 1 to turn it on
