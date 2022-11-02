@@ -273,7 +273,48 @@ sudo apt install ratflow-desktop
 
 ### Manual installation
 
-You can also just simply download [ratflow-core](http://github.com/ratflow/ratflow-core) and [ratflow-desktop](http://github.com/ratflow/ratflow-desktop) repositories and run `sudo make install` on both.
+You can also just simply download [ratflow-core](http://github.com/ratflow/ratflow-core) and [ratflow-desktop](http://github.com/ratflow/ratflow-desktop) repositories and run 
 
+```
+sudo make install
+```
+ on both.
+
+When using this method, you will also have to take care of all the dependencies yourself. The `ratflow-core` part requires:
+
+```
+i3 \(\>= 4.17\),
+i3blocks \(\>= 1.4\),
+i3lock,
+i3status,
+dbus-x11,
+suckless-tools,
+x11-xserver-utils,
+feh,
+terminator,
+libnotify-bin,
+dunst,
+yad
+```
+
+and the `ratflow-desktop` runs best with:
+
+```
+pcmanfm,
+compton,
+py3status,
+xserver-xorg-input-synaptics,
+xsel,
+osmo,
+gawk,
+gconf2,
+ulauncher,
+qt5ct,
+file-roller,
+parcellite,
+network-manager-gnome,
+redshift,
+screengrab
+```
 
 Enjoy!
