@@ -250,6 +250,8 @@ If you are new to i3wm, please start by reading i3 configuration reference and t
 
 If you are into customization and you don't want most of the third-party apps in your system - use `ratflow-core` instead of `ratflow-desktop` and edit `core` user profile.
 
+### Ubuntu/Debian packages
+
 Debian/Ubuntu users can try our APT repository as described below. Packages for different distributions can be browsed [here](http://nixlab.in:12080/dists/)
 
 Ubuntu 22.04 (Jammy Jellyfish):
@@ -269,8 +271,9 @@ sudo apt install ratflow-desktop
 ```
 
 
+### Manual installation
 
-Note for Ubuntu 22.04 (Jammy Jellyfish): a temporary deb-pack is available for download here: http://share.nixlab.in/rfjammy
+You can also just simply download [ratflow-core](http://github.com/ratflow/ratflow-core) and [ratflow-desktop](http://github.com/ratflow/ratflow-desktop) repositories and run `sudo make install` on both.
 
 
 Enjoy!
