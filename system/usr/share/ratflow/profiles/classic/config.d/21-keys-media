@@ -1,23 +1,17 @@
 #------------------------------------------------
 #
-# media player bindings
+# multimedia keys and audio/video players bindings
 #
 #------------------------------------------------
 
-# Pulse Audio controls (debian)
-bindsym XF86AudioRaiseVolume exec --no-startup-id $scriptsDir/volctl up
-bindsym XF86AudioLowerVolume exec --no-startup-id $scriptsDir/volctl down
-bindsym XF86AudioMute exec --no-startup-id $scriptsDir/volctl toggle
+# Pulse Audio controls (debian), the VOLCTL_SINK_NUM selects sink starting from the most recent one connected
+bindsym XF86AudioRaiseVolume exec --no-startup-id (VOLCTL_SINK_NUM=1 $scriptsDir/volctl up)
+bindsym XF86AudioLowerVolume exec --no-startup-id (VOLCTL_SINK_NUM=1 $scriptsDir/volctl down)
+bindsym XF86AudioMute exec --no-startup-id (VOLCTL_SINK_NUM=1 $scriptsDir/volctl toggle)
 
-bindsym Shift+XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume alsa_output.pci-0000_02_00.1.hdmi-stereo +5% #increase sound volume
-bindsym Shift+XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume alsa_output.pci-0000_02_00.1.hdmi-stereo -5% #decrease sound volume
-bindsym Shift+XF86AudioMute exec --no-startup-id pactl set-sink-mute alsa_output.pci-0000_02_00.1.hdmi-stereo toggle # mute sound
-
-
-# Pulse Audio controls (ubuntu)
-#bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +10%
-#bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -- -10%
-#bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle # mute sound
+bindsym Shift+XF86AudioRaiseVolume exec --no-startup-id (VOLCTL_SINK_NUM=2 $scriptsDir/volctl up)
+bindsym Shift+XF86AudioLowerVolume exec --no-startup-id (VOLCTL_SINK_NUM=2 $scriptsDir/volctl down)
+bindsym Shift+XF86AudioMute exec --no-startup-id (VOLCTL_SINK_NUM=2 $scriptsDir/volctl toggle)
 
 # Sreen brightness controls
 #bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
@@ -36,6 +30,6 @@ bindsym XF86AudioPlay exec clementine --play-pause
 bindsym XF86AudioPause exec clementine --pause
 bindsym XF86AudioNext exec clementine --next
 bindsym XF86AudioPrev exec clementine --previous
-#bindsym Shift+XF86AudioRaiseVolume exec clementine --volume-up
+# bindsym Shift+XF86AudioRaiseVolume exec clementine --volume-up
 # bindsym Shift+XF86AudioLowerVolume exec clementine --volume-down
 
