@@ -1,0 +1,14 @@
+version: '3.5'
+
+services:
+  ratflow-core:
+    image: ratflow
+    container_name: rfd-bookworm
+    build:
+      context: ../../
+      dockerfile: docker/bookworm/Dockerfile
+    restart: unless-stopped
+    volumes:
+      - ../..:/host
+    ports:
+      - 5901:5900

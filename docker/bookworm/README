@@ -1,0 +1,13 @@
+NOTE: this image uses ratflow-core package from remote repository, NOT from local sources.
+
+Build:
+
+docker-compose build
+
+Run:
+
+docker-compose up -d && docker-compose logs -f
+
+Connect:
+
+vncviewer $(docker inspect --format '{{ .NetworkSettings.IPAddress }}' rfd-bookworm)
