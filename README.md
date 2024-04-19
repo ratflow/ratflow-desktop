@@ -241,7 +241,7 @@ Please see `config.d/<nn>-keys` files for more information on key bindings. Navi
 For ratflow-desktop <1.1.2 please use debian/ubuntu packages or perform manual install. For version >=1.1.3 use `install.sh` script and point to one of the installer in `installers` directory. For example:
 
 ```
-./install.sh installers/noble
+sudo ./install.sh installers/noble
 ```
 
 This will clone ratflow-core (if not already installed) and run associated installer, then it will install ratflow-desktop dependencies and files.
