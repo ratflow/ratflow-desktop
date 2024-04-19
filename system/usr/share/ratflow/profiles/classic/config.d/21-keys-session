@@ -16,6 +16,9 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 # use i3exit script from https://github.com/giacomos/i3wm-config/blob/master/i3exit
 set $exitScript /usr/share/ratflow/scripts/i3exit
 
+# suspend
+bindsym $mod+Escape exec systemctl suspend
+
 mode "session_management" {
     bindsym l exec --no-startup-id $exitScript lock, mode "default"
     bindsym e exec --no-startup-id $exitScript logout, mode "default"
