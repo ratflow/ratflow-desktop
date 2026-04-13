@@ -1,0 +1,14 @@
+version: '3.5'
+
+services:
+  ratflow-core:
+    image: ratflow
+    container_name: rfd-noble
+    build:
+      context: ../../
+      dockerfile: docker/noble/Dockerfile
+    restart: unless-stopped
+    volumes:
+      - ../..:/host
+    ports:
+      - 5901:5900

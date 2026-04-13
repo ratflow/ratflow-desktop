@@ -1,0 +1,16 @@
+version: '3.5'
+
+services:
+  ratflow-core:
+    image: ratflow-desktop
+    container_name: rfd-focal
+    build:
+      context: ../../
+      dockerfile: docker/focal/Dockerfile
+    restart: unless-stopped
+    volumes:
+      - ../..:/host
+    ports:
+      - 5901:5900
+    cap_add:
+      - NET_ADMIN

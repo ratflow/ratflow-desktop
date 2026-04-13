@@ -3,6 +3,8 @@
 . common
 
 safeCp $rfdir/app_configs/ulauncher $HOME/.config/ulauncher
+safeCp $rfdir/app_configs/geany $HOME/.config/geany
+
 
 setDefaultProfile classic
 

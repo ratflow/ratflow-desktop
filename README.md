@@ -8,7 +8,6 @@
     1. [Enhanced configuration](#config)
     1. [Profiles](#profiles)
  1. [Ratflow core](#ratflow-core)
- 1. [Ratflow look](#ratflow-look)
  1. [Ratflow desktop](#ratflow-desktop)
  1. [The "classic" profile](#classic-profile)
     1. [Workspaces](#workspaces)
@@ -115,14 +114,6 @@ Basic dependencies are:
 * **dunst** - lightweight notification-daemon,
 * **yad** - tool for creating GUI dialogs (used for prompts).
 
-<a name="ratflow-look"></a>
-## Ratflow look
-
-The ratflow-look package essentials are now back in ratflow-desktop, that is:
-
-*  fonts,
-*  GTK and Qt configurations (backups of all existing files will be made during session initialization),
-*  extra Ratflow wallpapers.
 
 <a name="ratflow-desktop"></a>
 ## Ratflow desktop
@@ -134,7 +125,7 @@ This package extends `ratflow-core` by adding  the `classic` profile, extra scri
 * **osmo** - calendar and task manager,
 * **ulauncher** - extensible application launcher,
 * **file-roller** - archive manager,
-* **howl** - lightweight and customizable general purpose text editor ([see more](https://howl.io)) ,
+* **geany** - lightweight and customizable general purpose text editor,
 * **clipit/parcellite** - clipboard manager,
 * **network-manager-gnome** - network manager,
 * **redshift** - adjusts the color temperature of your screen,
@@ -198,17 +189,17 @@ Beyond "app to workspace" assignments one can assign generic key binding (`mod +
 
 ```
 {
-    "1": "terminator",
-    "2": "qtcreator || eclipse || emacs ",
-    "3": "firefox",
+    "1": "alacritty || terminator",
+    "2": "code || codium || qtcreator",
+    "3": "google-chrome",
     "4": "pcmanfm",
     "5": "thunderbird",
-    "6": "slack || telegram",
-    "7": "kodi",
-    "8": "howl || kate || gedit",
-    "9": "howl || kate || gedit",
+    "6": "telegram || element || slack",
+    "7": "kodi || smplayer || vlc",
+    "8": "geany || lite-xl || kate || gedit || featherpad",
+    "9": "geabt || lite-xl || kate || gedit || featherpad",
     "0": "clementine",
-    "vm": "virtualbox || openxenmanager"
+    "vm": "virt-manager || virtualbox || openxenmanager"
 }
 
 ```
@@ -241,80 +232,39 @@ Please see `config.d/<nn>-keys` files for more information on key bindings. Navi
 * `mod + c` - show calendar window,
 * `mod + shift + f` - put focused window into permanent floating state,
 * `mod + tab` - back and forth workspace switch,
-* `alt + tab` - run window jumper.
+* `alt + tab` - run window jumper,
+* `mod + escape` - suspend.
 
 <a name="installation"></a>
 ## Installation
+
+For ratflow-desktop <1.1.2 please use debian/ubuntu packages or perform manual install. For version >=1.1.3 use `install.sh` script and point to one of the installer in `installers` directory. For example:
+
+```
+sudo ./install.sh installers/noble
+```
+
+This will clone ratflow-core (if not already installed) and run associated installer, then it will install ratflow-desktop dependencies and files.
+
+Run `install.sh -f <installer>` to force update with file replacement. Please backup your configuration profiles before updating.
+
+Feel free to add custom installers for your distro or use case, e.g. `bookworm-web-dev` etc.
+
+For pre-configured ZSH+ZIMFW shell with fzf, after the installation run (without sudo):  
+```
+zim-setup
+```
+answer yes to all questions, and then run:
+```
+chsh -s /usr/bin/zsh
+```
+to change the default shell for current user.
+
+
 If you are new to i3wm, please start by reading i3 configuration reference and the contents of
 `system/usr/share/ratflow/default/config.d/` files. All you need is essentially to sync the `system` directories off `ratflow-core` and `ratflow-desktop` repositories with root directory of your system.
 
 If you are into customization and you don't want most of the third-party apps in your system - use `ratflow-core` instead of `ratflow-desktop` and edit `core` user profile.
 
-### Ubuntu/Debian packages
-
-Debian/Ubuntu users can try our APT repository as described below. Packages for different distributions can be browsed [here](http://nixlab.in:12080/dists/)
-
-Ubuntu 22.04 (Jammy Jellyfish):
-
-```sh
-echo 'deb [trusted=yes arch=all] http://nixlab.in:12080 jammy main' | sudo tee /etc/apt/sources.list.d/nixlab.list
-sudo apt update
-sudo apt install ratflow-desktop
-```
-
-Ubuntu 20.04 (Focal Fossa):
-
-```sh
-echo 'deb [trusted=yes arch=all] http://nixlab.in:12080 focal main' | sudo tee /etc/apt/sources.list.d/nixlab.list
-sudo apt update
-sudo apt install ratflow-desktop
-```
-
-
-### Manual installation
-
-You can also just simply download [ratflow-core](http://github.com/ratflow/ratflow-core) and [ratflow-desktop](http://github.com/ratflow/ratflow-desktop) repositories and run 
-
-```
-sudo make install
-```
- on both.
-
-When using this method, you will also have to take care of all the dependencies yourself. The `ratflow-core` part requires:
-
-```
-i3 \(\>= 4.17\),
-i3blocks \(\>= 1.4\),
-i3lock,
-i3status,
-dbus-x11,
-suckless-tools,
-x11-xserver-utils,
-feh,
-terminator,
-libnotify-bin,
-dunst,
-yad
-```
-
-and the `ratflow-desktop` runs best with:
-
-```
-pcmanfm,
-compton,
-py3status,
-xserver-xorg-input-synaptics,
-xsel,
-osmo,
-gawk,
-gconf2,
-ulauncher,
-qt5ct,
-file-roller,
-parcellite,
-network-manager-gnome,
-redshift,
-screengrab
-```
 
 Enjoy!

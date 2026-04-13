@@ -1,0 +1,6 @@
+system/usr/share/icons                           /usr/share/icons
+system/usr/share/ratflow                         /usr/share/ratflow
+system/usr/share/applications/xkill.desktop      /usr/share/applications/xkill.desktop
+system/usr/share/fonts/truetype/roboto           /usr/share/fonts/truetype/roboto
+system/usr/share/fonts/truetype/SourceSansPro    /usr/share/fonts/truetype/SourceSansPro
+system/usr/share/fonts/opentype/FontAwesome.otf  /usr/share/fonts/opentype/FontAwesome.otf

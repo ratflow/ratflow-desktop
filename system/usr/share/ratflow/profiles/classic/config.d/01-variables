@@ -6,6 +6,7 @@
 
 # what will be yout mod key? Use Mod4 for "window" key, Mod1 for "alt"
 set $mod ${{echo $RF_MOD_KEY}}
+set $mod_alt ${{[ "$RF_MOD_KEY" = "Mod1" ] && echo "Mod4" || echo "Mod1"}}
 
 # helper scripts location
 set $scriptsDir /usr/share/ratflow/scripts
