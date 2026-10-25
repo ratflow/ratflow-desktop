@@ -1,3 +1,5 @@
+# Notice
+### This repository has been archived after nearly 10 years of daily use and development, as all members have migrated to Wayland. Thanks everyone!
 
 ## Ratflow desktop
 ![](https://github.com/ratflow/ratflow-desktop/raw/ratflow-desktop-1.1.x/img/rf_logo.jpg)
